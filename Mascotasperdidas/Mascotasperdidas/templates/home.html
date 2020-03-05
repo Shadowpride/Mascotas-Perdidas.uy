@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    Inicio
+{% endblock %}
+
+{% block contenido %}
+<!--------   BLOQUE MOMENTANEO PARA DARLE FORMATO CUADRADO A LAS IMAGENES   -------->
+<style>
+    .imagenes {
+        display: inline-block;
+        position: relative;
+        object-fit: cover;
+        width:200px;
+        height:200px;
+    }
+</style>
+<!---------------------------------------------------------------------------------->
+
+    <h3>Aqui va el contenido de la pagina principal</h3>
+
+    {% for m in mascotas %}
+        {% if m.imagen %}
+            <figure>
+                <img src="{{ m.imagen.url }}" alt="" class="imagenes">
+                <figcaption>{{ m.barrio }}</figcaption>
+            </figure>
+        {% endif %}
+
+
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ingreso de Mascota
+{% endblock %}
+
+
+
+{% block contenido %}
+    <h3>Aqui se ingresan las Mascotas</h3>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}         <!-- para que se epueda ver dentro de la tabla-->
+        </table>
+        
+        <input type="submit" value="Enviar">
+    </form>
+
+    {{ mensaje }}
+{% endblock %}

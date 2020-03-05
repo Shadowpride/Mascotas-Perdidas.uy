@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MascotasPerdidas.uy | {% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <img src="{% static 'img/Logo.png' %} "alt="logo">
+    <div class="contenedor">
+        <img class="imagen" src="{% static 'img/Titulo.png' %}" alt="Titulo" >
+    </div>
+
+    <div id="container">
+        <ul>
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            <li><a href="{% url 'nuevo_ingreso_encontrado' %}">Encontraste una mascota?</a></li>
+            <li><a href="{% url 'nuevo_ingreso_perdido' %}">Perdiste una mascota?</a></li>
+        </ul>
+    </div>
+
+    <h1>
+        Bienvenido usuario
+    </h1>
+
+    <section>
+        {% block contenido %}
+
+        {% endblock %}
+    </section>
+
+    <h3>
+        Gracias por su visita
+    </h3>
+</body>
+</html>
