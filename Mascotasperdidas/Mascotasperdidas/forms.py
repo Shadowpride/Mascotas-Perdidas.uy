@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from Mascotas.models import MascotaPerdida
+from django.forms.widgets import HiddenInput
 
 import datetime
 
@@ -14,5 +15,6 @@ class MascotaPerdidaForm(ModelForm):
         fields = ['estado', 'barrio', 'tipo', 'raza', 'fecha', 'nombre', 'mail', 'telefono', 'imagen', 'descripcion']
 
         widgets = {
-            'fecha': forms.SelectDateWidget(years=range(2019, 2021))
+            'fecha': forms.SelectDateWidget(years=range(2019, 2021)), 
+            'estado': forms.HiddenInput()
         }
