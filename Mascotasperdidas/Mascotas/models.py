@@ -32,7 +32,7 @@ class Raza(models.Model):
 
 
 class MascotaPerdida(models.Model):
-    estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE,null=True, blank=True)
     imagen = models.ImageField(null=True, blank=True)  # <---- NO SACAR EL NULL NI EL BLANK QUE SE ROMPE LA BBDD
     barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE)
     tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
