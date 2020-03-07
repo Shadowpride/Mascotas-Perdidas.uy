@@ -15,12 +15,10 @@
         <img class="imagen" src="{% static 'img/Titulo.png' %}" alt="Titulo" >
     </div>
 
-    <div id="container">
-        <ul>
-            <li><a href="{% url 'home' %}">Inicio</a></li>
-            <li><a href="{% url 'nuevo_ingreso_encontrado' %}">Encontraste una mascota?</a></li>
-            <li><a href="{% url 'nuevo_ingreso_perdido' %}">Perdiste una mascota?</a></li>
-        </ul>
+    <div>
+            <a href="{% url 'home' %}">Inicio</a>
+            <a href="{% url 'nuevo_ingreso_encontrado' %}" id="boton_encontrada">Encontraste una mascota?</a>
+            <a href="{% url 'nuevo_ingreso_perdido' %}"id="boton_perdida">Perdiste una mascota?</a>
     </div>
 
     <h1>

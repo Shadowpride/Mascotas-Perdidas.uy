@@ -46,10 +46,48 @@
   .contenedor {
     text-align: center;
     display: inline-block;
-}
-#fotos {
-  color: #199B2C; 
-  font-size: 70%;
-  margin: 20px;
-  text-align: center;
   }
+  #fotos {
+    color: #199B2C; 
+    font-size: 70%;
+    margin: 20px;
+    text-align: center;
+    }
+    #------------------------------------------------------------------
+
+    #boton_encontrada > a, #boton_perdida > a {
+      display: inline-block;
+  
+      padding: 10px 20px;
+  
+      text-decoration: none;
+      color: white;
+  
+      font-size: 20px;
+  
+      border-radius: 20px;
+  
+      min-width: 200px;
+  
+      text-align: center;
+    }
+  
+  #boton_encontrada > a{
+      background-color: tomato;
+  
+      float: left;
+  
+      margin-left: 200px;
+  
+    }
+  
+  #boton_perdida > a{
+      background-color: darkcyan;
+  
+      float: right;
+  
+      margin-right: 200px;
+  
+    }
+
+ 
