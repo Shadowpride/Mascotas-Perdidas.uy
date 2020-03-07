@@ -1,10 +1,6 @@
 from django.shortcuts import render
 from Mascotas.models import MascotaPerdida
-from .forms import MascotaPerdidaForm
-
-from .forms_e import MascotaPerdidaForm_e
-
-
+from .forms import MascotaPerdidaForm, MascotaPerdidaForm_e
 
 
 def home(request):
