@@ -1,62 +1,57 @@
-#container {
-    font-family: Helvetica, Geneva, Arial, sans-serif;
-    padding-left: 20px;
-    background-color: #FFFFFF; 
-    margin: 10px;
-    }
-  a:link{
-    font-size: 120%;
-    text-decoration:none;
-    padding-left: 20px;
-  }
-  a:hover {
-    color:#2ECC71; 
-  }
-  h1 {
-    color: #199B2C; 
-    font-size: 150%;
-    margin: 20px;
-    text-align: center;
-  }
-  h3 {
-    color: #199B2C; 
-    font-size: 70%;
-    margin: 20px;
-    text-align: center;
-    }
-  form {
-    border: 2px solid #199B2C; 
-    border-radius: 10px;
-    margin: 10px;
-    font-size: 120%;
-    align-self: center;
-  }
-  label {
-    font-size: 110%;
-    padding: 5px;
-    text-align: left;
-    margin: 5px;
-  }
-  .inputs {
-    border-radius: 5px;
-    padding: 5px;
-    text-align: left;
-    margin: 5px;
-  }
-  .contenedor {
-    text-align: center;
-    display: inline-block;
-  }
-  #fotos {
-    color: #199B2C; 
-    font-size: 70%;
-    margin: 20px;
-    text-align: center;
-    }
 
-    #------------------------------------------------------------------
+a:link{
+  font-size: 120%;
+  text-decoration:none;
+  padding-left: 20px;
+}
+a:hover {
+  color:#2ECC71; 
+}
+h1 {
+  color: #199B2C; 
+  font-size: 150%;
+  margin: 20px;
+  text-align: center;
+}
+h3 {
+  color: #199B2C; 
+  font-size: 70%;
+  margin: 20px;
+  text-align: center;
+}
+form {
+  border: 2px solid #199B2C; 
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 120%;
+  align-self: center;
+}
+label {
+  font-size: 110%;
+  padding: 5px;
+  text-align: left;
+  margin: 5px;
+}
+.inputs {
+  border-radius: 5px;
+  padding: 5px;
+  text-align: left;
+  margin: 5px;
+}
+.contenedor {
+  text-align: center;
+  display: inline-block;
+}
+#fotos {
+  color: #199B2C; 
+  font-size: 70%;
+  margin: 20px;
+  text-align: center;
+}
+  
 
-#boton_encontrada > a, #boton_perdida > a {
+#boton_encontrada{
+
   display: inline-block;
 
   padding: 10px 20px;
@@ -71,18 +66,32 @@
   min-width: 200px;
 
   text-align: center;
-}
 
-#boton_encontrada > a{
   background-color: rgb(12, 100, 216);
-
-  float: left;
 
   margin-left: 200px;
 
+  float: left;
+
 }
 
-#boton_perdida > a{
+#boton_perdida{
+
+  display: inline-block;
+
+  padding: 10px 20px;
+
+  text-decoration: none;
+  color: white;
+
+  font-size: 20px;
+
+  border-radius: 20px;
+
+  min-width: 200px;
+
+  text-align: center;
+
   background-color: rgb(3, 173, 80);
 
   float: right;
