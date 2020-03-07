@@ -8,9 +8,9 @@ import datetime
 
 
 
-class MascotaPerdidaForm(ModelForm):
+class MascotaPerdidaForm_e(ModelForm):
 
-    estado = forms.CharField(initial='PERDIDO', widget = forms.HiddenInput())   
+    estado = forms.CharField(initial='ENCONTRADO', widget = forms.HiddenInput())   
 
     class Meta:
         model = MascotaPerdida

@@ -3,11 +3,11 @@ from django.db import models
 
 
 
-class Estado(models.Model):
+'''class Estado(models.Model):
     situacion = models.CharField(max_length=40)  # <---- Para indicar si esta perdido o encontrado
 
     def __str__(self):
-        return self.situacion
+        return self.situacion'''
 
 
 class Barrio(models.Model):
@@ -32,7 +32,7 @@ class Raza(models.Model):
 
 
 class MascotaPerdida(models.Model):
-    estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+    estado = models.CharField(max_length=40)
     imagen = models.ImageField(null=True, blank=True)  # <---- NO SACAR EL NULL NI EL BLANK QUE SE ROMPE LA BBDD
     barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE)
     tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import home, nuevo_ingreso_perdido
+from .views import home, nuevo_ingreso_perdido, nuevo_ingreso_encontrado
 
 # ------   PARA MANIPULAR IMAGENES   ------ #
 
@@ -29,7 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),
     path('nuevo_ingreso_perdido/', nuevo_ingreso_perdido, name='nuevo_ingreso_perdido'),
-    path('nuevo_ingreso_encontrado/', nuevo_ingreso_perdido, name='nuevo_ingreso_encontrado'),
+    path('nuevo_ingreso_encontrado/', nuevo_ingreso_encontrado, name='nuevo_ingreso_encontrado'),
 ]
 
 
