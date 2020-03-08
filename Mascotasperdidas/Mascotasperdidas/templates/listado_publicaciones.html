@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{% static 'js/confirmacion_p_eliminado.js' %}"></script>
+{% endblock %}
+
+
+{% block title %}
+    Listado Publicaciones
+{% endblock %}
+
+
+
+{% block contenido %}
+        <h3>Listado de publicaciones</h3>
+        <table>
+            <tr>
+                <th>Estado</th>
+                <th>Barrio</th>
+                <th>Tipo</th>
+                <th>Raza</th>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Mail</th>
+                <th>Telefono</th>
+                <th>Opciones</th>
+                
+            </tr>
+            {% for l in listado %}
+                <tr>
+                    <th>{{ l.estado }}</th>
+                    <th>{{ l.barrio }}</th>
+                    <th>{{ l.tipo }}</th>
+                    <th>{{ l.raza }}</th>
+                    <th>{{ l.fecha }}</th>
+                    <th>{{ l.nombre }}</th>
+                    <th>{{ l.mail }}</th>
+                    <th>{{ l.telefono }}</th>
+                    <th>
+                        <a href="{% url 'modificar_publicaciones' l.id %}">Modificar</a>
+                        <a href="#" onclick="ConfirmarEliminacion({{l.id}})">Eliminar</a>
+                    </th>
+                </tr>
+            {% endfor %}
+        </table>
+{% endblock %}

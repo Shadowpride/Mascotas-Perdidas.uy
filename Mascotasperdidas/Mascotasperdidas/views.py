@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from Mascotas.models import MascotaPerdida
 from .forms import MascotaPerdidaForm, MascotaPerdidaForm_e
 
@@ -39,3 +39,34 @@ def nuevo_ingreso_encontrado(request):
             data['mensaje'] = "Publicacion Guardada Correctamente"
         data['form_e'] = formulario_e
     return render(request, 'nuevo_ingreso_encontrado.html', data)
+
+
+def Listado_publicaciones(request):
+    listado = MascotaPerdida.objects.all()
+    data = {
+        'listado': listado
+    }
+    return render(request, 'listado_publicaciones.html', data)
+
+
+def Modificar_publicaciones(request, id):
+    modificar = MascotaPerdida.objects.get(id=id)
+    data = {
+        'form': MascotaPerdidaForm(instance=modificar)
+    }
+
+    if request.method == 'POST':
+        formulario = MascotaPerdidaForm(data=request.POST, files=request.FILES, instance=modificar)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = "Modificacion realizada correctamente"
+            data['form'] = formulario
+
+    return render(request, 'modificar_publicaciones.html', data)
+
+
+def Eliminar_publicacion(request, id):
+    publicacion = MascotaPerdida.objects.get(id=id)
+    publicacion.delete()
+
+    return redirect(to="listado_publicaciones")

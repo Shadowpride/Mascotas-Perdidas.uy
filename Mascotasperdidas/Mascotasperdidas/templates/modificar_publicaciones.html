@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Modificar Publicacion
+{% endblock %}
+
+
+
+{% block contenido %}
+    <h3>Aqui puedes modificar tu publicacion</h3>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}         
+        </table>
+
+        <input type="submit" value="Modificar">
+    </form>
+
+    {{ mensaje }}
+
+{% endblock %}
