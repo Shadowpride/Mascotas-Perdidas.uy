@@ -15,20 +15,21 @@
 
 
 {% block contenido %}
-
-    <h3>Aqui va el contenido de la publicacion</h3>
-
-    <a href="#" onclick="AmpliarImagen({{publicacion.id}})">  <!--   HAY QUE CORREGIR LA DIRECCION URL EN EL .JS-->
-        <img src="{{ publicacion.imagen.url }}" alt="" class="imagenes">
-    </a>
-    
-    <p>Estado de la mascota: {{ publicacion.estado }}</p>
-    <p>Barrio: {{ publicacion.barrio }}</p>
-    <p>Tipo: {{ publicacion.tipo }}</p>
-    <p>Raza: {{ publicacion.raza }}</p>
-    <p>Fecha: {{ publicacion.fecha }}</p>
-    <p>Nombre: {{ publicacion.nombre }}</p>
-    <p>Mail: {{ publicacion.mail }}</p>
-    <p>Telefono: {{ publicacion.telefono }}</p>
-    <p>Descripcion: {{ publicacion.descripcion }}</p>
+<div class="white">
+    <div class="container">
+        <a href="#" onclick="AmpliarImagen({{publicacion.id}})">  <!--   HAY QUE CORREGIR LA DIRECCION URL EN EL .JS-->
+            <img src="{{ publicacion.imagen.url }}" alt="" class="imagenes">
+        </a>
+        
+        <p>Estado de la mascota: {{ publicacion.estado }}</p>
+        <p>Barrio: {{ publicacion.barrio }}</p>
+        <p>Tipo: {{ publicacion.tipo }}</p>
+        <p>Raza: {{ publicacion.raza }}</p>
+        <p>Fecha: {{ publicacion.fecha }}</p>
+        <p>Nombre: {{ publicacion.nombre }}</p>
+        <p>Mail: {{ publicacion.mail }}</p>
+        <p>Telefono: {{ publicacion.telefono }}</p>
+        <p>Descripcion: {{ publicacion.descripcion }}</p>
+    </div>
+</div>
 {% endblock %}

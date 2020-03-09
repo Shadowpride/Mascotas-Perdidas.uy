@@ -16,16 +16,22 @@
 
 
 {% block contenido %}
-    <h3>Aqui se ingresan las Mascotas</h3>
 
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table> 
-            {{ form.as_table }}         <!-- para que se epueda ver dentro de la tabla-->
-        </table>
-        
-        <input type="submit" value="Publicar" onclick="ConfirmarPublicacionSubida()">
-    </form>
+<div class="white">
+    <div class="container" id="fh5co-features"> 
+        <div class="heading animate-box"><h2><b><span class="nav-brand">Ingreso de mascotas perdidas</span></b></h2></div>
 
-    {{ mensaje }}
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table> 
+                    {{ form.as_table }}         <!-- para que se epueda ver dentro de la tabla-->
+                </table>
+                
+                <input type="submit" value="Publicar" onclick="ConfirmarPublicacionSubida()">
+            </form>
+
+            {{ mensaje }}
+</div>
+</div>
+
 {% endblock %}

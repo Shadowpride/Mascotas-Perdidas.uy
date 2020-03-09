@@ -17,7 +17,7 @@ body {
 .nav-bar {
     background-color: white;
     padding: 0px 0px;
-    border-bottom: 1px solid #f47d23 !important;
+    border-bottom: 1px solid #0ad40a !important;
 }
 
 .bg-light {
@@ -51,7 +51,7 @@ body {
 }
 
 .navbar-brand2 {
-    color: #f47d23;
+    color: #1836e2;
 }
 
 .banner {
