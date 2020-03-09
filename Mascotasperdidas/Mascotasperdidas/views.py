@@ -70,3 +70,11 @@ def Eliminar_publicacion(request, id):
     publicacion.delete()
 
     return redirect(to="listado_publicaciones")
+
+
+def Ver_publicacion(request, id):
+    publicacion = MascotaPerdida.objects.get(id=id)
+    data = {
+        'publicacion': publicacion
+    }
+    return render(request, 'ver_publicacion.html', data)

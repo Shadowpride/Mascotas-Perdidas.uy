@@ -24,7 +24,9 @@
     {% for m in mascotas %}
         {% if m.imagen %}
             <figure id= "fotos">
-                <img src="{{ m.imagen.url }}" alt="" class="imagenes">
+                <a href="{% url 'ver_publicacion' m.id %}">
+                    <img src="{{ m.imagen.url }}" alt="" class="imagenes">
+                </a>
                 <figcaption>{{ m.estado }} EN: {{ m.barrio }}</figcaption>
             </figure>
         {% endif %}

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import home, nuevo_ingreso_perdido, nuevo_ingreso_encontrado, Listado_publicaciones, Modificar_publicaciones, Eliminar_publicacion
+from .views import home, nuevo_ingreso_perdido, nuevo_ingreso_encontrado, Listado_publicaciones, Modificar_publicaciones, Eliminar_publicacion, Ver_publicacion
 
 # ------   PARA MANIPULAR IMAGENES   ------ #
 
@@ -33,6 +33,7 @@ urlpatterns = [
     path('listado_publicaciones/', Listado_publicaciones, name='listado_publicaciones'),
     path('modificar_publicaciones/<id>/', Modificar_publicaciones, name='modificar_publicaciones'),
     path('eliminar_publicacion/<id>/', Eliminar_publicacion, name='eliminar_publicacion'),
+    path('ver_publicacion/<id>/', Ver_publicacion, name='ver_publicacion'),
 ]
 
 

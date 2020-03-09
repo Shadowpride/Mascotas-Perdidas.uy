@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+
+{% load static %}
+
+{% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{% static 'js/confirmar_publicacion_subida.js' %}"></script>
+{% endblock %}
+
+
 {% block title %}
     Ingreso de Mascota
 {% endblock %}
@@ -15,7 +24,7 @@
             {{ form.as_table }}         <!-- para que se epueda ver dentro de la tabla-->
         </table>
         
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Publicar" onclick="ConfirmarPublicacionSubida()">
     </form>
 
     {{ mensaje }}
