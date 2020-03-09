@@ -471,3 +471,59 @@ table {
     }
 
 }
+#boton_encontrada{
+
+    display: inline-block;
+  
+    padding: 10px 20px;
+  
+    text-decoration: none;
+    color: white;
+  
+    font-size: 20px;
+  
+    border-radius: 20px;
+  
+    min-width: 200px;
+  
+    text-align: center;
+  
+    background-color: rgb(12, 100, 216);
+  
+    margin-left: 200px;
+  
+    float: left;
+  
+  }
+  
+  #boton_perdida{
+  
+    display: inline-block;
+  
+    padding: 10px 20px;
+  
+    text-decoration: none;
+    color: white;
+  
+    font-size: 20px;
+  
+    border-radius: 20px;
+  
+    min-width: 200px;
+  
+    text-align: center;
+  
+    background-color: rgb(3, 173, 80);
+  
+    float: right;
+  
+    margin-right: 200px;
+  
+  }
+  .imagenes {
+    display: inline-block;
+    position: relative;
+    object-fit: cover;
+    width:200px;
+    height:200px;
+}
