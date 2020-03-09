@@ -26,6 +26,14 @@ form {
   font-size: 120%;
   align-self: center;
 }
+table {
+  border: 2px solid #199B2C; 
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 90%;
+  align-self: center;
+  color: #199B2C; 
+}
 label {
   font-size: 110%;
   padding: 5px;
@@ -48,6 +56,20 @@ label {
   margin: 20px;
   text-align: center;
 }
+p {
+  color: #199B2C; 
+  font-size: 150%;
+  margin: 20px;
+  text-align: center;
+}
+.imagenes {
+    display: inline-block;
+    position: relative;
+    object-fit: cover;
+    width:200px;
+    height:200px;
+}
+
   
 
 #boton_encontrada{
