@@ -8,6 +8,15 @@ body {
     color: white;
     font-size: 15px;
     padding: 8px 0px;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.top-2 {
+    position: sticky;
+    top: 37px;
+    z-index: 1;
 }
 
 .text-white {
@@ -477,53 +486,48 @@ table {
 #boton_encontrada{
 
     display: inline-block;
-  
+
     padding: 10px 20px;
-  
+
     text-decoration: none;
     color: white;
-  
+
     font-size: 20px;
-  
+
     border-radius: 20px;
-  
+
     min-width: 200px;
-  
+
     text-align: center;
-  
+
     background-color: rgb(12, 100, 216);
-  
+
     margin-left: 200px;
+
+}
   
-    float: left;
-  
-  }
-  
-  #boton_perdida{
-  
+#boton_perdida{
+
     display: inline-block;
-  
+
     padding: 10px 20px;
-  
+
     text-decoration: none;
     color: white;
-  
+
     font-size: 20px;
-  
+
     border-radius: 20px;
-  
+
     min-width: 200px;
-  
+
     text-align: center;
-  
+
     background-color: rgb(3, 173, 80);
-  
-    float: right;
-  
+
     margin-right: 200px;
-  
-  }
-  .imagenes {
+}
+.imagenes {
     display: inline-block;
     position: relative;
     object-fit: cover;
