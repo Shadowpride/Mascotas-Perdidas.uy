@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required  # <---- Para pedir acceso de login a funcionalidades
 from Mascotas.models import MascotaPerdida
-from .forms import MascotaPerdidaForm, MascotaPerdidaForm_e
+from .forms import MascotaPerdidaForm, MascotaPerdidaForm_e, CustomUserForm
+from django.contrib.auth import login, authenticate
 
 
 def home(request):
@@ -10,7 +12,7 @@ def home(request):
     }
     return render(request, 'home.html', data)
 
-
+@login_required
 def nuevo_ingreso_perdido(request):
     data = {
         'form':MascotaPerdidaForm()                                         # <---- formulario vacio para rellenar
@@ -78,3 +80,22 @@ def Ver_publicacion(request, id):
         'publicacion': publicacion
     }
     return render(request, 'ver_publicacion.html', data)
+
+
+def registro_usuario(request):
+    data = {
+        'form': CustomUserForm()
+    }
+
+    if request.method == 'POST':
+        formulario = CustomUserForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            #autenticar al usuario y redirigir al inicio
+            username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect(to='home')
+
+    return render(request, 'registration/registrar.html', data)

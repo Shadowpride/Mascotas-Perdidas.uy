@@ -17,6 +17,19 @@
 
 <body>
 
+    {% if user.is_authenticated %}
+        <div>
+            <a href="#">Usuario {{ user.username }}</a>
+            <a href="{% url 'logout' %}">Cerrar sesion</a>  <!-- se importa automaticamente en el path de login -->
+            {% else %}
+            <a href="{% url 'login' %}">Iniciar sesion</a>
+            <a href="{% url 'registro_usuario' %}">Registrarse</a>
+        </div>
+
+    
+        
+    {% endif %}
+
     <header>
 
         <figure>

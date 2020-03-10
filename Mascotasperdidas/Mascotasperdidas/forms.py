@@ -2,6 +2,8 @@ from django import forms
 from django.forms import ModelForm
 from Mascotas.models import MascotaPerdida
 from django.forms.widgets import HiddenInput
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 import datetime
 
@@ -48,3 +50,11 @@ class MascotaPerdidaForm_e(ModelForm):
             raise forms.ValidationError("Ha ingresado una fecha mayor al día de hoy")
 
         return fecha_ingreso
+
+
+
+class CustomUserForm(UserCreationForm):
+    
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2']
