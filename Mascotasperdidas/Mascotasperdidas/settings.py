@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Mascotas.apps.MascotasConfig'  # <---- manera correcta de introducir la app
+    'Mascotas.apps.MascotasConfig',  # <---- manera correcta de introducir la app
+    'crispy_forms',  #<---- para tomar los furmularios y aplicarles bootstrap 
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

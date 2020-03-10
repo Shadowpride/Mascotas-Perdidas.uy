@@ -13,18 +13,20 @@
     Ingreso de Mascota
 {% endblock %}
 
-
+{% load crispy_forms_tags %}
 
 {% block contenido %}
     <h3>Aqui se ingresan las Mascotas</h3>
     
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <table>
-            {{ form_e.as_table }}         <!-- para que se epueda ver dentro de la tabla-->
-        </table>
+ 
+        {{ form_e | crispy }}         <!-- para que se epueda ver dentro de la tabla-->
 
-        <input type="submit" value="Publicar" onclick="ConfirmarPublicacionSubida()">
+        <div class="float-right">
+            <input type="submit" value="Publicar" onclick="ConfirmarPublicacionSubida()" class="btn btn-success">
+        </div>
+        
     </form>
 
     {{ mensaje }}
