@@ -11,15 +11,26 @@
     {% block javascript %}{% endblock %}
 
 </head>
+
+
+
+
 <body>
-    <img src="{% static 'img/Logo.png' %} "alt="logo">
-    <div class="contenedor">
-        <img class="imagen" src="{% static 'img/Titulo.png' %}" alt="Titulo" >
-    </div>
+
+    <header>
+
+        <figure>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'img/Logo.png' %} "alt="logo" height="60px">
+            </a>
+        </figure>
+        
+    </header>
+    
+
 
         
     <article style="overflow: hidden;">
-        <a href="{% url 'home' %}">Inicio</a>
         <a href="{% url 'nuevo_ingreso_encontrado' %}" id="boton_encontrada">Encontraste una mascota?</a>
         <a href="{% url 'nuevo_ingreso_perdido' %}"id="boton_perdida">Perdiste una mascota?</a>
         <a href="{% url 'listado_publicaciones' %}">Listado de publicaciones</a>
