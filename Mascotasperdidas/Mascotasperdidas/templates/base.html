@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MascotasPerdidas.uy | {% block title %}{% endblock %}</title>
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block javascript %}{% endblock %}
 
 </head>
@@ -18,43 +19,55 @@
 
 <body>
 
-    {% if user.is_authenticated %}
-        <div>
-            <a href="#">Usuario {{ user.username }}</a>
-            <a href="{% url 'logout' %}">Cerrar sesion</a>  <!-- se importa automaticamente en el path de login -->
-            {% else %}
-            <a href="{% url 'login' %}">Iniciar sesion</a>
+    <!------------------   ESPACIO DE LOGIN Y LOGOUT   ------------------>
+
+    <div id="login_logout">
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Cerrar sesión</a>  <!-- se importa automaticamente en el path de login -->
+            <a href="#">Usuario: {{ user.username }}</a>
+
+        {% else %}
             <a href="{% url 'registro_usuario' %}">Registrarse</a>
-        </div>
+            <a href="{% url 'login' %}">Iniciar sesión</a>
 
+        {% endif %}
+
+    </div>
     
-        
-    {% endif %}
 
-    <header>
+    <!----------------------   HEADER PRINCIPAL   ---------------------->
 
-        <figure>
+    <header id="header_principal">
+
+        <figure id="logotipo">
             <a href="{% url 'home' %}">
                 <img src="{% static 'img/Logo.png' %} "alt="logo" height="60px">
             </a>
         </figure>
+
+        <div id="encontrado_perdido">
+            <a href="{% url 'nuevo_ingreso_encontrado' %}" id="boton_encontrada">¿Encontraste una mascota?</a>
+            <a href="{% url 'nuevo_ingreso_perdido' %}" id="boton_perdida">¿Perdiste una mascota?</a>
+        </div>
         
     </header>
+
     
+    <!-------------------   LISTA DE PUBLICACIONES   ------------------->
 
-
-        
     <article style="overflow: hidden;">
-        <a href="{% url 'nuevo_ingreso_encontrado' %}" id="boton_encontrada">Encontraste una mascota?</a>
-        <a href="{% url 'nuevo_ingreso_perdido' %}"id="boton_perdida">Perdiste una mascota?</a>
         <a href="{% url 'listado_publicaciones' %}">Listado de publicaciones</a>
     </article>
 
-    <h1>
-        Bienvenido al portal de mascotas!
-    </h1>
+
+    <!----------------------   SECTION PRINCIPAL   --------------------->
 
     <section class="container">
+        <h1>
+            Bienvenido al portal de mascotas!
+        </h1>
+
         {% block contenido %}
 
         {% endblock %}
