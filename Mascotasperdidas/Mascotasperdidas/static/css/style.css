@@ -102,6 +102,7 @@
 
 
 
+/*   ------------------   Mozaico HOME   ------------------   */
 
 
 
@@ -114,7 +115,32 @@
 }
 
 
+.white {
+  background-color: white;
+  padding: 80px 0px;
+}
 
+
+.heading {
+  color: #24b540;
+  font-weight: bold;
+  text-align: center;
+}
+
+.js .animate-box {
+  opacity: 0;
+}
+
+.features {
+  color: gray;
+  padding: 10px 0px;
+}
+.bordery {
+  border-right: 0px solid gainsboro;
+  border-bottom: 0px solid gainsboro;
+  padding: 20px;
+  position: relative;
+}
 
 
 

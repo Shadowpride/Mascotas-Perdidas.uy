@@ -8,19 +8,25 @@
 
 {% block contenido %}
 
-
-    <h3>Estas son las macotas que estamos buscando</h3>
-
-    {% for m in mascotas %}
-        {% if m.imagen %}
-            <figure id= "fotos">
-                <a href="{% url 'ver_publicacion' m.id %}">
-                    <img src="{{ m.imagen.url }}" alt="" class="imagenes">
-                </a>
-                <figcaption>{{ m.estado }} EN: {{ m.barrio }}</figcaption>
-            </figure>
-        {% endif %}
-
-
-    {% endfor %}
+<div class="white">
+    <div class="container" id="fh5co-features">
+        <div class="heading animate-box"><h2><b><span class="nav-brand">Mascotas en busqueda</span></b></h2></div>
+        <div class="row">
+            {% for m in mascotas %}
+                {% if m.imagen %}
+                <div class="col-sm-4 animate-box" data-animate-effect="fadeIn">
+                    <div class="bordery">
+                        <figure id= "fotos">
+                            <a href="{% url 'ver_publicacion' m.id %}">
+                                <img src="{{ m.imagen.url }}" alt="" class="imagenes">
+                            </a>
+                            <figcaption class="features" aria-hidden="true">{{ m.estado }} EN: {{ m.barrio }}</figcaption>
+                        </figure>
+                    </div>
+                </div>    
+                {% endif %}   
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
