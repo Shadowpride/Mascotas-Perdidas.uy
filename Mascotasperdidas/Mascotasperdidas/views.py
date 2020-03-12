@@ -27,7 +27,7 @@ def nuevo_ingreso_perdido(request):
         data['form'] = formulario                                           # <---- para ingresar las validaciones .forms.py> Alerta_fecha
     return render(request, 'nuevo_ingreso_perdido.html', data)
 
-
+@login_required
 def nuevo_ingreso_encontrado(request):
     data = {
         'form_e':MascotaPerdidaForm_e()                                         # <---- formulario vacio para rellenar
@@ -42,7 +42,7 @@ def nuevo_ingreso_encontrado(request):
         data['form_e'] = formulario_e
     return render(request, 'nuevo_ingreso_encontrado.html', data)
 
-
+@login_required
 def Listado_publicaciones(request):
     listado = MascotaPerdida.objects.all()
     data = {
@@ -92,9 +92,10 @@ def registro_usuario(request):
         if formulario.is_valid():
             formulario.save()
             #autenticar al usuario y redirigir al inicio
+            email = formulario.cleaned_data['email']
             username = formulario.cleaned_data['username']
             password = formulario.cleaned_data['password1']
-            user = authenticate(username=username, password=password)
+            user = authenticate(email=email, username=username, password=password)
             login(request, user)
             return redirect(to='home')
 

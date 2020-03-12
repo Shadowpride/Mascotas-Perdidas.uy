@@ -12,7 +12,7 @@ import datetime
 
 class MascotaPerdidaForm(ModelForm):
 
-    estado = forms.CharField(initial='PERDIDO', widget = forms.HiddenInput())   
+    estado = forms.CharField(initial='PERDIDO', widget = forms.HiddenInput())
 
     class Meta:
         model = MascotaPerdida
@@ -33,7 +33,7 @@ class MascotaPerdidaForm(ModelForm):
 
 class MascotaPerdidaForm_e(ModelForm):
 
-    estado = forms.CharField(initial='ENCONTRADO', widget = forms.HiddenInput())   
+    estado = forms.CharField(initial='ENCONTRADO', widget = forms.HiddenInput())
 
     class Meta:
         model = MascotaPerdida
@@ -54,6 +54,8 @@ class MascotaPerdidaForm_e(ModelForm):
 
 
 class CustomUserForm(UserCreationForm):
+
+    email = forms.EmailField(required=True)
     
     class Meta:
         model = User

@@ -32,24 +32,29 @@
             
         </tr>
         {% for l in listado %}
-            <tr>
-                <th>{{ l.estado }}</th>
-                <th>{{ l.barrio }}</th>
-                <th>{{ l.tipo }}</th>
-                <th>{{ l.raza }}</th>
-                <th>{{ l.fecha }}</th>
-                <th>{{ l.nombre }}</th>
-                <th>{{ l.mail }}</th>
-                <th>{{ l.telefono }}</th>
-                <th>
-                    <a href="{% url 'modificar_publicaciones' l.id %}">Modificar</a>
-                    <a href="#" onclick="ConfirmarEliminacion({{l.id}})">Eliminar</a>
-                </th>
-            </tr>
+            {% if user.email == l.mail %}
+                <tr>
+                    <th>{{ l.estado }}</th>
+                    <th>{{ l.barrio }}</th>
+                    <th>{{ l.tipo }}</th>
+                    <th>{{ l.raza }}</th>
+                    <th>{{ l.fecha }}</th>
+                    <th>{{ l.nombre }}</th>
+                    <th>{{ l.mail }}</th>
+                    <th>{{ l.telefono }}</th>
+                    <th>
+                        <a href="{% url 'modificar_publicaciones' l.id %}">Modificar</a>
+                        <a href="#" onclick="ConfirmarEliminacion({{l.id}})">Eliminar</a>
+                    </th>
+                </tr>
+  
+            {% endif %}
         {% endfor %}
     </table>
+
 {% else %}
-<h3>Debe iniciar sesión para ver el listado</h3>
+    <h3>Debe iniciar sesión para ver el listado</h3>
+    
 {% endif %}
 
 
