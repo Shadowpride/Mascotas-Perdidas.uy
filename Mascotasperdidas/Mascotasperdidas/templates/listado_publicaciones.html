@@ -15,35 +15,42 @@
 
 
 {% block contenido %}
-        <h3>Listado de publicaciones</h3>
-        <table class="table table-striped">
+
+{% if user.is_authenticated %}
+    <h3>Listado de publicaciones</h3>
+    <table class="table table-striped">
+        <tr>
+            <th>Estado</th>
+            <th>Barrio</th>
+            <th>Tipo</th>
+            <th>Raza</th>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Mail</th>
+            <th>Telefono</th>
+            <th>Opciones</th>
+            
+        </tr>
+        {% for l in listado %}
             <tr>
-                <th>Estado</th>
-                <th>Barrio</th>
-                <th>Tipo</th>
-                <th>Raza</th>
-                <th>Fecha</th>
-                <th>Nombre</th>
-                <th>Mail</th>
-                <th>Telefono</th>
-                <th>Opciones</th>
-                
+                <th>{{ l.estado }}</th>
+                <th>{{ l.barrio }}</th>
+                <th>{{ l.tipo }}</th>
+                <th>{{ l.raza }}</th>
+                <th>{{ l.fecha }}</th>
+                <th>{{ l.nombre }}</th>
+                <th>{{ l.mail }}</th>
+                <th>{{ l.telefono }}</th>
+                <th>
+                    <a href="{% url 'modificar_publicaciones' l.id %}">Modificar</a>
+                    <a href="#" onclick="ConfirmarEliminacion({{l.id}})">Eliminar</a>
+                </th>
             </tr>
-            {% for l in listado %}
-                <tr>
-                    <th>{{ l.estado }}</th>
-                    <th>{{ l.barrio }}</th>
-                    <th>{{ l.tipo }}</th>
-                    <th>{{ l.raza }}</th>
-                    <th>{{ l.fecha }}</th>
-                    <th>{{ l.nombre }}</th>
-                    <th>{{ l.mail }}</th>
-                    <th>{{ l.telefono }}</th>
-                    <th>
-                        <a href="{% url 'modificar_publicaciones' l.id %}">Modificar</a>
-                        <a href="#" onclick="ConfirmarEliminacion({{l.id}})">Eliminar</a>
-                    </th>
-                </tr>
-            {% endfor %}
-        </table>
+        {% endfor %}
+    </table>
+{% else %}
+<h3>Debe iniciar sesión para ver el listado</h3>
+{% endif %}
+
+
 {% endblock %}
