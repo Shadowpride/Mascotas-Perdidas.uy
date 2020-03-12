@@ -1,6 +1,6 @@
-function AmpliarImagen(id) {
+function AmpliarImagen(imagen) {
     Swal.fire({
-        imageUrl: "/"+id+"/",
+        imageUrl: imagen,
         imageHeight: 500,
         imageAlt: 'Imagen de la Publicacion'
       })
