@@ -19,7 +19,7 @@ class MascotaPerdidaForm(ModelForm):
         fields = ['estado', 'barrio', 'tipo', 'raza', 'fecha', 'nombre', 'mail', 'telefono', 'imagen', 'descripcion']
 
         widgets = {
-            'fecha': forms.SelectDateWidget(years=range(2019, 2021)), 
+            'fecha': forms.SelectDateWidget(years=range(2020, 2021)), 
         }
 
     def clean_fecha(self):                         # <---- para no ingresar fechas mayores a hoy
@@ -40,7 +40,7 @@ class MascotaPerdidaForm_e(ModelForm):
         fields = ['estado', 'barrio', 'tipo', 'raza', 'fecha', 'nombre', 'mail', 'telefono', 'imagen', 'descripcion']
 
         widgets = {
-            'fecha': forms.SelectDateWidget(years=range(2019, 2021)), 
+            'fecha': forms.SelectDateWidget(years=range(2020, 2021)), 
         }
 
     def clean_fecha(self):                         # <---- para no ingresar fechas mayores a hoy
