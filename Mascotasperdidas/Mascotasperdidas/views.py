@@ -100,3 +100,10 @@ def registro_usuario(request):
             return redirect(to='home')
 
     return render(request, 'registration/registrar.html', data)
+
+def historial(request):
+    historial = MascotaPerdida.objects.order_by('-id')                      # <---- mostrar ultimos anuncios al principio
+    data = {
+        'historial':historial
+    }
+    return render(request, 'historial.html', data)
