@@ -2,6 +2,8 @@ body {
   background: url('/static/img/background.png') no-repeat center center fixed; 
 
   background-size: cover;
+
+  min-height: 100vh;
 }
 
 /*   ------------------   LOGIN Y LOGOUT   ------------------   */
@@ -197,7 +199,119 @@ body {
 }
 
 
+/*------------  FOOTER PRINCIPAL   ------------*/
+
+footer{
+  width: 100%;
+  background: #202020;
+  color: white;    
+}
+
+.footer_principal{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 180px;
+  padding: 20px 40px;
+}
+
+.footer_alto{
+  display: flex;
+  justify-content: space-between;
+}
 
 
+/*------------   COLUMNA UNO   ------------*/
+
+.columna_uno{
+  max-width: 400px;
+}
+
+.columna_uno h4{
+  font-size: 18px;
+}
+
+.columna_uno p{
+  font-size: 14px;
+  color: #C7C7C7;
+  margin-top: 10px;
+}
 
 
+/*------------   COLUMNA DOS   ------------*/
+
+.columna_dos{
+  max-width: 400px;
+}
+
+.columna_dos h4{
+  font-size: 18px;
+}
+
+.contacto_redsocial{
+  margin-top: 20px;
+  display: flex;
+}
+
+.contacto_redsocial p{
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+
+/*------------   COLUMNA TRES   ------------*/
+
+.columna_tres {
+  max-width: 400px;
+}
+
+.columna_tres h4{
+  font-size: 18px;
+}
+
+.contenido_columna_tres{
+  margin-top: 20px;
+  display: flex;
+}
+
+.contenido_columna_tres img{
+  width: 36px;
+  height: 36px;
+}
+
+.contenido_columna_tres p{
+  margin-top: 5px;
+  margin-left: 20px;
+  max-width: 140px;
+}
+
+
+/*------------   FOOTER BAJO   ------------*/
+
+.footer_bajo{
+  width: 100%;  
+  background: rgb(41, 41, 41);
+}
+
+.derechos_info{
+  max-width: 1200px;
+  margin: auto;
+  display: flex;  /* siempre que uso justify-content*/
+  justify-content: space-between; /* sirve para distribuir sus elementos en espacios iguales*/ 
+  padding: 2px;
+}
+
+.copyright{
+  color: #C7C7C7;
+}
+
+.copyright a{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.informacion a{
+  text-decoration: none;
+  color: #C7C7C7;
+}

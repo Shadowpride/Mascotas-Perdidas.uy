@@ -33,6 +33,8 @@
         </tr>
         {% for l in listado %}
             {% if user.email == l.mail %}
+                <p>Aquí podrás modificar y eliminar tus publicaciones. <br>
+                    Desde el equipo de MascotasPerdidas.uy agredecemos que elimines la publicación una vez hayas contactado con el dueño o cuidador. Gracias!</p>
                 <tr>
                     <th>{{ l.estado }}</th>
                     <th>{{ l.barrio }}</th>
@@ -47,7 +49,7 @@
                         <a href="#" onclick="ConfirmarEliminacion({{l.id}})">Eliminar</a>
                     </th>
                 </tr>
-  
+
             {% endif %}
         {% endfor %}
     </table>

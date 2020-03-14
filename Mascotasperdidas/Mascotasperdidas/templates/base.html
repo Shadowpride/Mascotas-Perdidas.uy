@@ -10,6 +10,7 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock %}
     {% block javascript %}{% endblock %}
 
 </head>
@@ -63,8 +64,68 @@
         {% endblock %}
     </section>
 
-    <h3>
-        Gracias por su visita
-    </h3>
+
+    <!----------------------   FOOTER PRINCIPAL   --------------------->
+   
+    <footer>
+       
+        <div class="footer_principal">
+         
+             <div class="footer_alto">
+ 
+                 <div class="columna_uno">
+                     <h4><span style="color: royalblue;">MASCOTAS</span> <span style="color: rgb(3, 173, 80);">PERDIDAS</span></h4>
+ 
+                     <p>Entendemos que es muy importante llegar a la mayor cantidad de gente en el menor tiempo posible.
+                        Por eso decidimos crear una web dedicada a solucionar este problema, proporcionando una interfaz
+                        simple y amigable que permita crear anuncios rápidos, tanto a personas que perdieron su mascota
+                        como otras que las hayan encontrado. 
+                        </p>
+ 
+                 </div>
+ 
+                 <div class="columna_dos">
+ 
+                     <h4>Redes Sociales</h4>
+ 
+                     <div class="contacto_redsocial">
+                        <img src="{% static 'img/facebook.png' %}" height="36px">
+                        <p>Seguinos en Facebook</p>
+                     </div>
+
+                     <div class="contacto_redsocial">
+                        <img src="{% static 'img/instagram.png' %}" height="36px">
+                        <p>Seguinos en Instagram</p>
+                     </div>
+
+                 </div>
+ 
+                 <div class="columna_tres">
+ 
+                     <h4>Contacto</h4>
+
+                     <div class="contenido_columna_tres">
+                        <img src="{% static 'img/contact.png' %}">
+                        <p>mascotasperdidasuy@gmail.com</p>
+                     </div>
+
+                 </div>
+             </div>
+         </div>
+         
+         <div class="footer_bajo">
+                <div class="derechos_info">
+                     <div>
+                        <p class="copyright">© 2020 Todos los Derechos Reservados | <a href="">Code5</a></p>
+                     </div>
+ 
+                     <div class="informacion">
+                         <a href="#">Informacion Compañia</a> | <a href="#">Politica y Privacidad</a> | <a href="#">Terminos y Condiciones</a>
+                     </div>
+                 </div>
+             </div>
+         
+     </footer>
+
 </body>
 </html>

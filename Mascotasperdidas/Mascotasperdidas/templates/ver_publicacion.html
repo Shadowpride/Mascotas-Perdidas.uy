@@ -3,6 +3,10 @@
 
 {% load static %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style_ver_publicacion.css' %}">
+{% endblock %}
+
 {% block javascript %}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="{% static 'js/ampliar_imagen.js' %}"></script>
@@ -16,19 +20,52 @@
 
 {% block contenido %}
 
-    <h3>Aqui va el contenido de la publicacion</h3>
+    <h3 id="titulo_publicacion">{{ publicacion.tipo|title }} {{ publicacion.estado|lower }} en {{ publicacion.barrio|title }}</h3>
 
-    <a href="#" onclick="AmpliarImagen({{publicacion.imgagen}})">  <!--   HAY QUE CORREGIR LA DIRECCION URL EN EL .JS-->
-        <img src="{{ publicacion.imagen.url }}" alt="" class="imagenes">
-    </a>
+    <div id="foto_publicacion">
+        <a href="#" onclick="AmpliarImagen('{{ publicacion.imagen.url }}')">  <!--   HAY QUE CORREGIR LA DIRECCION URL EN EL .JS-->
+            <img src="{{ publicacion.imagen.url }}" alt="" class="imagenes">
+        </a>
+    </div>
+
+    <div id="info_publicacion">
+        <p>Fecha: {{ publicacion.fecha }}</p>
+
+        <!--------------   NO FUNCIONA COMO DEBERIA   -------------->
+
+        {% if publicacion.raza == 'OTRO' %}
+            <p>Raza: No especificada</p>
+        {% else %}
+            <p>Raza: {{ publicacion.raza|title }}</p>
+        {% endif %}
+
+        <!---------------------------------------------------------->
+        
+
+        {% if publicacion.estado == 'ENCONTRADO' %}
+            <p>Estado de la mascota: <span style="color: royalblue;">{{ publicacion.estado|title }}</span></p>
+        {% else %}
+            <p>Estado de la mascota: <span style="color: rgb(3, 173, 80);">{{ publicacion.estado|title }}</span></p>
+        {% endif %}
+        
+
+        <!--------------   NO FUNCIONA COMO DEBERIA   -------------->
+
+        {% if publicacion.barrio == 'OTRO' %}
+            <p>Barrio: No especificado</p>
+        {% else %}
+            <p>Barrio: {{ publicacion.barrio|title }}</p>
+        {% endif %}
+
+        <!---------------------------------------------------------->
+
+        <p>Descripción de la mascota: {{ publicacion.descripcion }}</p>
+    </div>
+
+    <div id="contacto_publicacion">
+        <button onclick="Swal.fire('{{ publicacion.nombre }}','Tel: 0{{ publicacion.telefono }}<br>Email: {{ publicacion.mail }}')">
+            Contactar
+        </button>
+    </div>
     
-    <p>Estado de la mascota: {{ publicacion.estado }}</p>
-    <p>Barrio: {{ publicacion.barrio }}</p>
-    <p>Tipo: {{ publicacion.tipo }}</p>
-    <p>Raza: {{ publicacion.raza }}</p>
-    <p>Fecha: {{ publicacion.fecha }}</p>
-    <p>Nombre: {{ publicacion.nombre }}</p>
-    <p>Mail: {{ publicacion.mail }}</p>
-    <p>Telefono: {{ publicacion.telefono }}</p>
-    <p>Descripcion: {{ publicacion.descripcion }}</p>
 {% endblock %}
