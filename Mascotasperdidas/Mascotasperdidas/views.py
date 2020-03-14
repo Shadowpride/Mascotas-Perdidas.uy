@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required  # <---- Para pedir acceso de login a funcionalidades
 from Mascotas.models import MascotaPerdida
-from .forms import MascotaPerdidaForm, CustomUserForm
+from .forms import MascotaPerdidaForm, MascotaPerdidaForm_e, CustomUserForm
 from django.contrib.auth import login, authenticate
 
 
