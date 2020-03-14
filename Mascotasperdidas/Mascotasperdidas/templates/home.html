@@ -14,26 +14,27 @@
             <div class="heading animate-box"><h2><b><span class="nav-brand">Mascotas en busqueda</span></b></h2></div>
             <div class="row">
                 {% for m in mascotas %}
-    
-                    {% if m.imagen %}
-                    <div class="col-sm-4 animate-box">
-                        <div class="bordery">
-                            <figure id= "fotos">
-                                <a href="{% url 'ver_publicacion' m.id %}">
-    
-                                    {% if m.estado == 'PERDIDO' %}
-                                        <img src="{{ m.imagen.url }}" alt="" class="imagenes_perdido">
-    
-                                    {% else %}
-                                        <img src="{{ m.imagen.url }}" alt="" class="imagenes_encontrado">
-    
-                                    {% endif %}
-                                </a>
-                                <figcaption class="features" aria-hidden="true">{{ m.estado }} EN: {{ m.barrio }}</figcaption>
-                            </figure>
-                        </div>
-                    </div>    
-                    {% endif %}   
+                    {% if m.estado != 'FINALIZADO' %}
+                        {% if m.imagen %}
+                        <div class="col-sm-4 animate-box">
+                            <div class="bordery">
+                                <figure id= "fotos">
+                                    <a href="{% url 'ver_publicacion' m.id %}">
+        
+                                        {% if m.estado == 'PERDIDO' %}
+                                            <img src="{{ m.imagen.url }}" alt="" class="imagenes_perdido">
+        
+                                        {% else %}
+                                            <img src="{{ m.imagen.url }}" alt="" class="imagenes_encontrado">
+        
+                                        {% endif %}
+                                    </a>
+                                    <figcaption class="features" aria-hidden="true">{{ m.estado }} EN: {{ m.barrio }}</figcaption>
+                                </figure>
+                            </div>
+                        </div>    
+                        {% endif %}
+                    {% endif %}      
                 {% endfor %}
             </div>
         </div>
