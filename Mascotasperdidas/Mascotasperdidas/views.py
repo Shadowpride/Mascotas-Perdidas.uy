@@ -74,9 +74,9 @@ def Eliminar_publicacion(request, id):
     return redirect(to="listado_publicaciones")
 
 def Finalizar(request, id):
-    #publicacion = MascotaPerdida.objects.get(id=id)
-    #publicacion.estado='FINALIZADO'              #Cambia estado a FINALZIADO
-    #publicacion.save()
+    publicacion = MascotaPerdida.objects.get(id=id)
+    publicacion.estado='FINALIZADO'              #Cambia estado a FINALZIADO
+    publicacion.save()
 
     return redirect(to="listado_publicaciones")
 
