@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import home, nuevo_ingreso_perdido, nuevo_ingreso_encontrado, Listado_publicaciones, Modificar_publicaciones, Eliminar_publicacion, Ver_publicacion, registro_usuario, historial
+from .views import home, nuevo_ingreso_perdido, nuevo_ingreso_encontrado, Listado_publicaciones, Modificar_publicaciones, Eliminar_publicacion, Ver_publicacion, registro_usuario, historial, Finalizar
 
 # ------   PARA MANIPULAR IMAGENES   ------ #
 
@@ -20,6 +20,7 @@ urlpatterns = [
     path('listado_publicaciones/', Listado_publicaciones, name='listado_publicaciones'),
     path('modificar_publicaciones/<id>/', Modificar_publicaciones, name='modificar_publicaciones'),
     path('eliminar_publicacion/<id>/', Eliminar_publicacion, name='eliminar_publicacion'),
+    path('finalizar/<id>/', Finalizar, name='finalizar'),
     path('ver_publicacion/<id>/', Ver_publicacion, name='ver_publicacion'),
     path('registro/', registro_usuario, name='registro_usuario'),
     path('historial/', historial, name='historial'),

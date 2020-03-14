@@ -17,19 +17,14 @@
                     {% if m.imagen %}
                     <div class="col-sm-4 animate-box">
                         <div class="bordery">
+                            {% if m.estado == 'FINALIZADO' %}
                             <figure id= "fotos">
                                 <a href="{% url 'ver_publicacion' m.id %}">
-    
-                                    {% if m.estado == 'PERDIDO' %}
-                                        <img src="{{ m.imagen.url }}" alt="" class="imagenes_perdido">
-    
-                                    {% else %}
-                                        <img src="{{ m.imagen.url }}" alt="" class="imagenes_encontrado">
-    
-                                    {% endif %}
+                                    <img src="{{ m.imagen.url }}" alt="" class="imagenes_perdido">
                                 </a>
                                 <figcaption class="features" aria-hidden="true">{{ m.estado }} EN: {{ m.barrio }}</figcaption>
                             </figure>
+                            {% endif %}
                         </div>
                     </div>    
                     {% endif %}   
