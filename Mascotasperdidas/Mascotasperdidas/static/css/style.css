@@ -193,6 +193,14 @@ body {
   padding: 10px 0px;
 }
 
+.verde{
+  color: #24b540;
+  padding: 10px 0px;
+}
+.azul {
+  color: royalblue;
+  padding: 10px 0px;
+}
 .bordery {
   padding: 5px;
   position: relative;

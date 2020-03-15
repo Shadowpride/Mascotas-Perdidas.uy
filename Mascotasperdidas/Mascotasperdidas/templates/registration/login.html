@@ -14,12 +14,14 @@
             {% csrf_token %}
     
             {{ form | crispy }}
-    
+
+            <div>   
+                <a href="{% url 'registro_usuario' %}">Registrate aqui!</a> 
+            </div>
             
             <input type="submit" value="Login" class="btn btn-success float-right">
         </form>
     </div>
-    
   
 </body>
 </html>

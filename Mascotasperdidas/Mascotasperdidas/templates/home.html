@@ -23,13 +23,12 @@
         
                                         {% if m.estado == 'PERDIDO' %}
                                             <img src="{{ m.imagen.url }}" alt="" class="imagenes_perdido">
-        
+                                            <figcaption class="verde" aria-hidden="true">{{ m.estado }} EN: {{ m.barrio }}</figcaption>        
                                         {% else %}
                                             <img src="{{ m.imagen.url }}" alt="" class="imagenes_encontrado">
-        
+                                            <figcaption class="azul" aria-hidden="true">{{ m.estado }} EN: {{ m.barrio }}</figcaption>
                                         {% endif %}
                                     </a>
-                                    <figcaption class="features" aria-hidden="true">{{ m.estado }} EN: {{ m.barrio }}</figcaption>
                                 </figure>
                             </div>
                         </div>    
