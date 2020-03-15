@@ -19,6 +19,8 @@
 
 {% if user.is_authenticated %}
     <h3>Listado de publicaciones</h3>
+    <p>Aquí podrás modificar y eliminar tus publicaciones. <br>
+        Desde el equipo de MascotasPerdidas.uy agredecemos que finalices la publicación una vez hayas contactado con el dueño o cuidador. Gracias!</p>
     <table class="table table-striped">
         <tr>
             <th>Estado</th>
@@ -34,8 +36,6 @@
         </tr>
         {% for l in listado %}
             {% if user.email == l.mail %}
-                <p>Aquí podrás modificar y eliminar tus publicaciones. <br>
-                    Desde el equipo de MascotasPerdidas.uy agredecemos que finalices la publicación una vez hayas contactado con el dueño o cuidador. Gracias!</p>
                 <tr>
                     <th>{{ l.estado }}</th>
                     <th>{{ l.barrio }}</th>
