@@ -1,16 +1,93 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required  # <---- Para pedir acceso de login a funcionalidades
-from Mascotas.models import MascotaPerdida
+from Mascotas.models import MascotaPerdida, Barrio, Raza
 from .forms import MascotaPerdidaForm, MascotaPerdidaForm_e, CustomUserForm
 from django.contrib.auth import login, authenticate
 
 
+
+
 def home(request):
     mascotas = MascotaPerdida.objects.order_by('-id')                       # <---- mostrar ultimos anuncios al principio
+    barrios = Barrio.objects.all()
+    razas = Raza.objects.all()
+
     data = {
-        'mascotas':mascotas
+        'mascotas':mascotas,
+        'barrios':barrios,
+        'razas':razas
     }
+
+    if request.method == 'POST':
+        filtro_estado = request.POST.get('filtro_estado')
+        filtro_tipo = request.POST.get('filtro_tipo')
+        filtro_barrio = request.POST.get('filtro_barrio')
+        filtro_raza = request.POST.get('filtro_raza')
+        
+        if filtro_estado == '' and filtro_tipo == '' and filtro_barrio == '' and filtro_raza =='':
+            pass
+        
+        elif filtro_estado !='' and filtro_tipo =='' and filtro_barrio == '' and filtro_raza =='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(estado=filtro_estado)
+            data['mascotas'] = mascotas
+        
+        elif filtro_estado !='' and filtro_tipo =='' and filtro_barrio == '' and filtro_raza !='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(estado=filtro_estado, raza_id=filtro_raza)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado !='' and filtro_tipo !='' and filtro_barrio =='' and filtro_raza =='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(estado=filtro_estado, tipo_id=filtro_tipo)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado !='' and filtro_tipo !='' and filtro_barrio =='' and filtro_raza !='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(estado=filtro_estado, tipo_id=filtro_tipo, raza_id=filtro_raza)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado == '' and filtro_tipo !='' and filtro_barrio =='' and filtro_raza =='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(tipo_id=filtro_tipo)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado == '' and filtro_tipo !='' and filtro_barrio !='' and filtro_raza =='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(tipo_id=filtro_tipo, barrio_id=filtro_barrio)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado != '' and filtro_tipo =='' and filtro_barrio !='' and filtro_raza =='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(estado=filtro_estado, barrio_id=filtro_barrio)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado != '' and filtro_tipo =='' and filtro_barrio !='' and filtro_raza !='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(estado=filtro_estado, barrio_id=filtro_barrio, raza_id=filtro_raza)
+            data['mascotas'] = mascotas
+            
+        elif filtro_estado == '' and filtro_tipo =='' and filtro_barrio !='' and filtro_raza =='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(barrio_id=filtro_barrio)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado == '' and filtro_tipo =='' and filtro_barrio =='' and filtro_raza !='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(raza_id=filtro_raza)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado == '' and filtro_tipo !='' and filtro_barrio =='' and filtro_raza !='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(tipo_id=filtro_tipo, raza_id=filtro_raza)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado == '' and filtro_tipo !='' and filtro_barrio !='' and filtro_raza !='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(tipo_id=filtro_tipo, barrio_id=filtro_barrio, raza_id=filtro_raza)
+            data['mascotas'] = mascotas
+
+        elif filtro_estado == '' and filtro_tipo =='' and filtro_barrio !='' and filtro_raza !='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(barrio_id=filtro_barrio, raza_id=filtro_raza)
+            data['mascotas'] = mascotas
+
+        else:
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(estado=filtro_estado,
+                                                                    tipo_id=filtro_tipo,
+                                                                    barrio_id=filtro_barrio,
+                                                                    raza_id=filtro_raza)
+            data['mascotas'] = mascotas
+
     return render(request, 'home.html', data)
+
 
 @login_required
 def nuevo_ingreso_perdido(request):
@@ -27,6 +104,7 @@ def nuevo_ingreso_perdido(request):
         data['form'] = formulario                                           # <---- para ingresar las validaciones .forms.py> Alerta_fecha
     return render(request, 'nuevo_ingreso_perdido.html', data)
 
+
 @login_required
 def nuevo_ingreso_encontrado(request):
     data = {
@@ -41,6 +119,7 @@ def nuevo_ingreso_encontrado(request):
             return redirect(to='home')
         data['form_e'] = formulario_e
     return render(request, 'nuevo_ingreso_encontrado.html', data)
+
 
 @login_required
 def Listado_publicaciones(request):
@@ -72,6 +151,7 @@ def Eliminar_publicacion(request, id):
     publicacion.delete()
 
     return redirect(to="listado_publicaciones")
+
 
 def Finalizar(request, id):
     publicacion = MascotaPerdida.objects.get(id=id)
@@ -107,6 +187,7 @@ def registro_usuario(request):
             return redirect(to='home')
 
     return render(request, 'registration/registrar.html', data)
+
 
 def historial(request):
     historial = MascotaPerdida.objects.order_by('fecha')                      # <---- mostrar ultimos anuncios al principio

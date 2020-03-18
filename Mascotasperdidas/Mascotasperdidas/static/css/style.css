@@ -38,7 +38,7 @@ body {
 #header_principal {
   padding: 15px 20px;
 
-  background-color: white;
+  background-color: whitesmoke;
 
   border-bottom: lightgray 1px solid;
 
@@ -115,6 +115,49 @@ body {
 .container{
   background-color: white;
   padding: 20px 20px 50px 20px;
+  border: lightgrey 1px;
+}
+
+#subtitulo_home {
+
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid lightgray;
+  display: block;
+}
+
+#formulario_filtro {
+  display: inline-block;
+  width: 98%;
+  text-align: center;
+
+  padding: 5px 0px;
+  justify-content: space-between;
+
+  background-color: rgb(231, 231, 231);
+
+  border: 1px solid lightgray;
+  border-top: none;
+  border-radius: 0px 0px 20px 20px;
+
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+#formulario_filtro > label {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 18px;
+}
+
+#formulario_filtro > select {
+  text-align: center;
+  border-radius: 5px;
+}
+
+#formulario_filtro > select > option {
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #fotos {
@@ -146,9 +189,10 @@ body {
   display: inline-block;
   position: relative;
   object-fit: cover;
-  width:200px;
-  height:200px;
+  width:250px;
+  height:250px;
   transform: scale(1);
+  border-radius: 20px;
 
   border: rgb(3, 173, 80) 2px solid;
 
@@ -159,9 +203,10 @@ body {
   display: inline-block;
   position: relative;
   object-fit: cover;
-  width:200px;
-  height:200px;
+  width:250px;
+  height:250px;
   transform: scale(1);
+  border-radius: 20px;
 
   border: royalblue 2px solid;
 
@@ -169,7 +214,7 @@ body {
 }
 
 .imagenes_perdido:hover, .imagenes_encontrado:hover {
-  transform: scale(1.3);
+  transform: scale(1.04);
 }
 
 
@@ -194,16 +239,28 @@ body {
 }
 
 .verde{
-  color: #24b540;
-  padding: 10px 0px;
+  
+  color: white;
+  padding: 5px 0px;
+  margin: 5px 0;
+  background-color: #24b540;
+  min-width: 250px;
+  border-radius: 20px;
+  text-decoration: none;
 }
 .azul {
-  color: royalblue;
-  padding: 10px 0px;
+  color: white;
+  padding: 5px 0px;
+  margin: 5px 0;
+  background-color: royalblue;
+  min-width: 250px;
+  border-radius: 20px;
+  text-decoration: none;
 }
 .bordery {
-  padding: 5px;
+  margin: 10px;
   position: relative;
+
 }
 
 

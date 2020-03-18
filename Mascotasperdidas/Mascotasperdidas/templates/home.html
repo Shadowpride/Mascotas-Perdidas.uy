@@ -11,7 +11,43 @@
 
     <div class="white">
         <div class="container" id="fh5co-features">
-            <div class="heading animate-box"><h2><b><span class="nav-brand">Mascotas en busqueda</span></b></h2></div>
+            <h2>MASCOTAS PERDIDAS | Últimas publicaciones:</h2>
+            <span id="subtitulo_home">Aquí podras encontrar las últimas publicaciones de mascotas perdidas y encontradas, esperamos ser de ayuda!</span>
+
+            <form action="" method="POST" id="formulario_filtro">
+                {% csrf_token %}
+                <label>Estado: </label>
+                <select name="filtro_estado" id="">
+                    <option value="" selected>------</option>
+                    <option value="PERDIDO">Perdido</option>
+                    <option value="ENCONTRADO">Encontrado</option>
+                </select>
+
+                <label>Tipo: </label>
+                <select name="filtro_tipo">
+                    <option value="" selected>------</option>
+                    <option value="1">Perro</option>
+                    <option value="2">Gato</option>
+                </select>
+
+                <label>Barrio: </label>
+                <select name="filtro_barrio">
+                    <option value="" selected>------</option>
+                    {% for barrio in barrios %}
+                        <option value="{{ barrio.id }}">{{ barrio.lugar|title }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Raza: </label>
+                <select name="filtro_raza">
+                    <option value="" selected>------</option>
+                    {% for raza in razas %}
+                        <option value="{{ raza.id }}">{{ raza.tipo|title }}</option>
+                    {% endfor %}
+                </select>
+                
+                <input type="submit" value="Filtrar">
+            </form>
             <div class="row">
                 {% for m in mascotas %}
                     {% if m.estado != 'FINALIZADO' %}
@@ -23,10 +59,10 @@
         
                                         {% if m.estado == 'PERDIDO' %}
                                             <img src="{{ m.imagen.url }}" alt="" class="imagenes_perdido">
-                                            <figcaption class="verde" aria-hidden="true">{{ m.estado }} EN: {{ m.barrio }}</figcaption>        
+                                            <figcaption class="verde" aria-hidden="true">{{ m.estado|title }} en: {{ m.barrio|title }}</figcaption>        
                                         {% else %}
                                             <img src="{{ m.imagen.url }}" alt="" class="imagenes_encontrado">
-                                            <figcaption class="azul" aria-hidden="true">{{ m.estado }} EN: {{ m.barrio }}</figcaption>
+                                            <figcaption class="azul" aria-hidden="true">{{ m.estado|title }} en: {{ m.barrio|title }}</figcaption>
                                         {% endif %}
                                     </a>
                                 </figure>
