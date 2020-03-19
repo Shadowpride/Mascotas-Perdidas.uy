@@ -14,6 +14,7 @@ class MascotaPerdidaForm(ModelForm):
 
     estado = forms.CharField(initial='PERDIDO', widget = forms.HiddenInput())
 
+
     class Meta:
         model = MascotaPerdida
         fields = ['estado', 'barrio', 'tipo', 'raza', 'fecha', 'nombre', 'mail', 'telefono', 'imagen', 'descripcion']

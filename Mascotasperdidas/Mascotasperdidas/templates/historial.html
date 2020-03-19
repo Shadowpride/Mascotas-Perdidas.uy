@@ -10,8 +10,9 @@
     {% block contenido %}
 
     <div class="white">
-        <div class="container" id="fh5co-features">
-            <div class="heading animate-box"><h2><b><span class="nav-brand">Historial de mascotas reencontradas</span></b></h2></div>
+        <div id="container" id="fh5co-features">
+            <h2>Historial de mascotas reencontradas</h2>
+            <span class="subtitulo_home">!Estas son las mascotas que pudieron encontrar a sus dueños!</span>
             <div class="row">
                 {% for m in historial %}
                     {% if m.imagen %}

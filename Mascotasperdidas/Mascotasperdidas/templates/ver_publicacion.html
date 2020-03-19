@@ -9,7 +9,6 @@
 
 {% block javascript %}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="{% static 'js/ampliar_imagen.js' %}"></script>
 {% endblock %}
 
 
@@ -23,7 +22,10 @@
     <h3 id="titulo_publicacion">{{ publicacion.tipo|title }} {{ publicacion.estado|lower }} en {{ publicacion.barrio|title }}</h3>
 
     <div id="foto_publicacion">
-        <a href="#" onclick="AmpliarImagen('{{ publicacion.imagen.url }}')">  <!--   HAY QUE CORREGIR LA DIRECCION URL EN EL .JS-->
+        <a href="#" onclick="Swal.fire({
+            imageUrl: '{{ publicacion.imagen.url }}',
+            imageAlt: 'Imagen de la Publicacion'
+            })">  
             <img src="{{ publicacion.imagen.url }}" alt="" class="imagenes">
         </a>
     </div>
