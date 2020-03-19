@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{% static 'js/confirmar_modificacion.js' %}"></script>
+{% endblock %}
+
 {% block title %}
     Modificar Publicacion
 {% endblock %}
 
 {% load crispy_forms_tags %}
+
 
 {% block contenido %}
     <h3>Aqui puedes modificar tu publicacion</h3>
@@ -12,11 +20,12 @@
     <form action="" method="POST">
         {% csrf_token %}
 
-        {{ form | crispy }}         
+        {{ form | crispy }} 
 
-        <input type="submit" value="Modificar">
+        <div class="float-right">
+            <input type="submit" value="Modificar" class="btn btn-success" onclick="ConfirmarModificacion()">
+        </div>
     </form>
 
-    {{ mensaje }}
 
 {% endblock %}

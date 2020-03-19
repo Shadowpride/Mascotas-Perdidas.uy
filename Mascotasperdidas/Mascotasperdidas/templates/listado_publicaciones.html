@@ -48,7 +48,10 @@
                     <th>
                         <a href="{% url 'modificar_publicaciones' l.id %}">Modificar</a>
                         <a href="#" onclick="ConfirmarEliminacion({{l.id}})">Eliminar</a>
-                        <a href="#" onclick="Finalizar({{l.id}})">Finalizar</a>
+                        {% if l.estado != 'FINALIZADO' %}
+                            <a href="#" onclick="Finalizar({{l.id}})">Finalizar</a>
+                        {% endif %}
+
                     </th>
                 </tr>
 

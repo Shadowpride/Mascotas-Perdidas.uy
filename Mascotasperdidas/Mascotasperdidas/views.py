@@ -123,7 +123,7 @@ def nuevo_ingreso_encontrado(request):
 
 @login_required
 def Listado_publicaciones(request):
-    listado = MascotaPerdida.objects.all()
+    listado = MascotaPerdida.objects.order_by('-id')
     data = {
         'listado': listado
     }
@@ -140,8 +140,8 @@ def Modificar_publicaciones(request, id):
         formulario = MascotaPerdidaForm(data=request.POST, files=request.FILES, instance=modificar)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Modificacion realizada correctamente"
-            data['form'] = formulario
+            return redirect(to='listado_publicaciones')
+        data['form'] = formulario
 
     return render(request, 'modificar_publicaciones.html', data)
 
