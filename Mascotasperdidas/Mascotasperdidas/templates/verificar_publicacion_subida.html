@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/verificar_publicaciones.css' %}">
+{% endblock %}
+
+{% block title %}
+    Publicación verificada
+{% endblock %}
+
+{% block contenido %}
+    <div id="centrar">
+        <figure>
+            <img src="{% static 'img/tick.png' %}" alt="tick_verificador" width="160px">
+        </figure>
+
+        <h2>Publicación subida con Éxito!</h2>
+        <p>Ya puedes ver tu publicación en el apartado '<i><a href="{% url 'listado_publicaciones' %}">mis publicaciones</a></i>' y en el inicio!</p>
+        
+        <a href="{% url 'home' %}" id="ir_inicio">Inicio</a>
+    
+    </div>
+{% endblock %}
