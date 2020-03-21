@@ -4,6 +4,8 @@ from Mascotas.models import MascotaPerdida
 from django.forms.widgets import HiddenInput
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required 
 
 import datetime
 
@@ -13,7 +15,7 @@ import datetime
 class MascotaPerdidaForm(ModelForm):
 
     estado = forms.CharField(initial='PERDIDO', widget = forms.HiddenInput())
-
+    imagen = forms.ImageField(required=True)
 
     class Meta:
         model = MascotaPerdida
@@ -35,6 +37,7 @@ class MascotaPerdidaForm(ModelForm):
 class MascotaPerdidaForm_e(ModelForm):
 
     estado = forms.CharField(initial='ENCONTRADO', widget = forms.HiddenInput())
+    imagen = forms.ImageField(required=True)
 
     class Meta:
         model = MascotaPerdida
@@ -57,6 +60,7 @@ class MascotaPerdidaForm_e(ModelForm):
 class CustomUserForm(UserCreationForm):
 
     email = forms.EmailField(required=True)
+    first_name = forms.CharField(required=True)
     
     class Meta:
         model = User
