@@ -100,7 +100,7 @@ def nuevo_ingreso_perdido(request):
        
         if formulario.is_valid():
             formulario.save()                                               # <---- si se validan los datos, se guarda y se envia al servidor
-            return redirect(to='home')
+            return redirect(to='verificar_publicacion')
         data['form'] = formulario                                           # <---- para ingresar las validaciones .forms.py> Alerta_fecha
     return render(request, 'nuevo_ingreso_perdido.html', data)
 
@@ -116,9 +116,13 @@ def nuevo_ingreso_encontrado(request):
 
         if formulario_e.is_valid():
             formulario_e.save()                                               # <---- si se validan los datos, se guarda y se envia al servidor
-            return redirect(to='home')
+            return redirect(to='verificar_publicacion')
         data['form_e'] = formulario_e
     return render(request, 'nuevo_ingreso_encontrado.html', data)
+
+
+def Verificar_publicaciones_subidas(request):
+    return render(request, 'verificar_publicacion_subida.html')
 
 
 @login_required

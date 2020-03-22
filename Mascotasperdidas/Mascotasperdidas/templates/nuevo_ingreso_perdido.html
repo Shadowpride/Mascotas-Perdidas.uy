@@ -1,14 +1,5 @@
 {% extends 'base.html' %}
 
-
-{% load static %}
-
-{% block javascript %}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="{% static 'js/confirmar_publicacion_subida.js' %}"></script>
-{% endblock %}
-
-
 {% block title %}
     Ingreso de Mascota
 {% endblock %}
@@ -24,7 +15,7 @@
         {{ form | crispy }}         <!-- para que se epueda ver dentro de la tabla-->
 
         <div class="float-right">
-            <input type="submit" value="Publicar" onclick="ConfirmarPublicacionSubida()" class="btn btn-success">
+            <input type="submit" value="Publicar" class="btn btn-success">
         </div>
     </form>
 
