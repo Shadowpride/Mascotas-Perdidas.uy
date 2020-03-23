@@ -18,21 +18,21 @@
                 {% csrf_token %}
                 <label>Estado: </label>
                 <select name="filtro_estado" id="">
-                    <option value="" selected>------</option>
+                    <option value="" selected>Todos</option>
                     <option value="PERDIDO">Perdido</option>
                     <option value="ENCONTRADO">Encontrado</option>
                 </select>
 
                 <label>Tipo: </label>
                 <select name="filtro_tipo">
-                    <option value="" selected>------</option>
+                    <option value="" selected>Todos</option>
                     <option value="1">Perro</option>
                     <option value="2">Gato</option>
                 </select>
 
                 <label>Barrio: </label>
                 <select name="filtro_barrio">
-                    <option value="" selected>------</option>
+                    <option value="" selected>Todos</option>
                     {% for barrio in barrios %}
                         <option value="{{ barrio.id }}">{{ barrio.lugar|title }}</option>
                     {% endfor %}
@@ -40,10 +40,24 @@
 
                 <label>Raza: </label>
                 <select name="filtro_raza">
-                    <option value="" selected>------</option>
-                    {% for raza in razas %}
-                        <option value="{{ raza.id }}">{{ raza.tipo|title }}</option>
-                    {% endfor %}
+                    <optgroup>
+                        <option value="" selected>Todos</option>
+                    </optgroup>
+                    <optgroup label="Otras">
+                        {% for raza in razaotros %}
+                            <option value="{{ raza.id }}">{{ raza.tipo|title }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    <optgroup label="Perros">
+                        {% for raza in razasperros %}
+                            <option value="{{ raza.id }}">{{ raza.tipo|title }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    <optgroup label="Gatos">
+                        {% for raza in razasgatos %}
+                            <option value="{{ raza.id }}">{{ raza.tipo|title }}</option>
+                        {% endfor %}
+                    </optgroup>
                 </select>
                 
                 <input type="submit" value="Filtrar">

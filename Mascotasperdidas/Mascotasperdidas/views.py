@@ -10,12 +10,16 @@ from django.contrib.auth import login, authenticate
 def home(request):
     mascotas = MascotaPerdida.objects.order_by('-id')                       # <---- mostrar ultimos anuncios al principio
     barrios = Barrio.objects.all()
-    razas = Raza.objects.all()
+    razaotros = Raza.objects.filter(tipo='OTRO')
+    razasperros = Raza.objects.filter(id__gte=6, id__lte=15)
+    razasgatos = Raza.objects.filter(id__gte=16)
 
     data = {
         'mascotas':mascotas,
         'barrios':barrios,
-        'razas':razas
+        'razaotros':razaotros,
+        'razasperros':razasperros,
+        'razasgatos':razasgatos
     }
 
     if request.method == 'POST':
