@@ -82,6 +82,10 @@ def home(request):
         elif filtro_estado == '' and filtro_tipo =='' and filtro_barrio !='' and filtro_raza !='':
             mascotas = MascotaPerdida.objects.order_by('-id').filter(barrio_id=filtro_barrio, raza_id=filtro_raza)
             data['mascotas'] = mascotas
+        
+        elif filtro_estado !='' and filtro_tipo !='' and filtro_barrio !='' and filtro_raza =='':
+            mascotas = MascotaPerdida.objects.order_by('-id').filter(estado=filtro_estado, tipo_id=filtro_tipo, barrio_id=filtro_barrio)
+            data['mascotas'] = mascotas
 
         else:
             mascotas = MascotaPerdida.objects.order_by('-id').filter(estado=filtro_estado,
