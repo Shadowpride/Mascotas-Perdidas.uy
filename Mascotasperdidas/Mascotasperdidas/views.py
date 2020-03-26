@@ -180,6 +180,7 @@ def Ver_publicacion(request, id):
     }
     return render(request, 'ver_publicacion.html', data)
 
+
 def Ver_historial(request, id):
     publicacion = MascotaPerdida.objects.get(id=id)
     data = {
@@ -209,7 +210,7 @@ def registro_usuario(request):
 
 
 def historial(request):
-    historial = MascotaPerdida.objects.order_by('fecha')                      # <---- mostrar ultimos anuncios al principio
+    historial = MascotaPerdida.objects.filter(estado='FINALIZADO').order_by('-id')                    # <---- mostrar ultimos anuncios al principio
     data = {
         'historial':historial
     }
