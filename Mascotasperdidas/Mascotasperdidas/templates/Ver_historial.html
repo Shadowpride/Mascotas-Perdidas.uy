@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style_ver_publicacion.css' %}">
+{% endblock %}
+
+{% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+{% endblock %}
+
+
+{% block title %}
+    Publicacion
+{% endblock %}
+
+
+{% block contenido %}
+
+    <h3 id="titulo_publicacion">{{ publicacion.tipo|title }} {{ publicacion.estado|lower }} en {{ publicacion.barrio|title }}</h3>
+
+    <div id="foto_publicacion">
+        <a href="#" onclick="Swal.fire({
+            imageUrl: '{{ publicacion.imagen.url }}',
+            imageAlt: 'Imagen de la Publicacion'
+            })">  
+            <img src="{{ publicacion.imagen.url }}" alt="" class="imagenes">
+        </a>
+    </div>
+
+    <div id="info_publicacion">
+        <p>Fecha: {{ publicacion.fecha }}</p>
+
+        <!--------------   NO FUNCIONA COMO DEBERIA   -------------->
+
+        {% if publicacion.raza == 'OTRO' %}
+            <p>Raza: No especificada</p>
+        {% else %}
+            <p>Raza: {{ publicacion.raza|title }}</p>
+        {% endif %}
+
+        <!---------------------------------------------------------->
+        
+
+        {% if publicacion.estado == 'ENCONTRADO' %}
+            <p>Estado de la mascota: <span style="color: royalblue;">{{ publicacion.estado|title }}</span></p>
+        {% else %}
+            <p>Estado de la mascota: <span style="color: rgb(3, 173, 80);">{{ publicacion.estado|title }}</span></p>
+        {% endif %}
+        
+
+        <!--------------   NO FUNCIONA COMO DEBERIA   -------------->
+
+        {% if publicacion.barrio == 'OTRO' %}
+            <p>Barrio: No especificado</p>
+        {% else %}
+            <p>Barrio: {{ publicacion.barrio|title }}</p>
+        {% endif %}
+
+        <!---------------------------------------------------------->
+
+        <p>Descripción de la mascota: {{ publicacion.descripcion }}</p>
+    </div>
+    
+{% endblock %}

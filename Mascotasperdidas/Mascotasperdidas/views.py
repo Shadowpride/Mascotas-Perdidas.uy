@@ -180,6 +180,13 @@ def Ver_publicacion(request, id):
     }
     return render(request, 'ver_publicacion.html', data)
 
+def Ver_historial(request, id):
+    publicacion = MascotaPerdida.objects.get(id=id)
+    data = {
+        'publicacion': publicacion
+    }
+    return render(request, 'Ver_historial.html', data)
+
 
 def registro_usuario(request):
     data = {
