@@ -6,6 +6,29 @@ body {
   min-height: 100vh;
 }
 
+/*   ------------------   BOTON FLOTANTE   ------------------   */
+
+.botonflotante{
+  display: inline-block;
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+
+  background-color: rgb(252, 191, 61);
+  color: white;
+
+  text-decoration: none;
+
+  padding: 5px 10px;
+
+  border-radius: 2px;
+}
+
+.botonflotante:hover {
+  text-decoration: none;
+  color: white;
+}
+
 /*   ------------------   LOGIN Y LOGOUT   ------------------   */
 
 #login_logout{
