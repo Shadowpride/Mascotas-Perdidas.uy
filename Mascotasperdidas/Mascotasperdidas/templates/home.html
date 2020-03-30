@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 
@@ -88,8 +89,9 @@
             </div>
         </div>
     </div>
-
-    <a href="{% url 'historial' %}" class="botonflotante">Mascotas reencontradas</a>
+    <a href="{% url 'historial' %}">
+    <img src=" {% static 'img/Huella.png' %} " class="botonflotante" height="80px">
+    </a>
 
     {% endblock %}
 
