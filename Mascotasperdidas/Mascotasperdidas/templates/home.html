@@ -11,8 +11,8 @@
 
     <div class="white">
         <div class="container" id="fh5co-features">
-            <h2>MASCOTAS PERDIDAS | Últimas publicaciones:</h2>
-            <span id="subtitulo_home">Aquí podras encontrar las últimas publicaciones de mascotas perdidas y encontradas, esperamos ser de ayuda!</span>
+            <h2>Últimas publicaciones:</h2>
+            <span id="subtitulo_home">¡Aquí podras encontrar las últimas publicaciones de mascotas perdidas y encontradas, esperamos ser de ayuda!</span>
 
             <form action="" method="POST" id="formulario_filtro">
                 {% csrf_token %}
@@ -88,5 +88,9 @@
             </div>
         </div>
     </div>
+
+    <a href="{% url 'historial' %}" class="botonflotante">Mascotas reencontradas</a>
+
     {% endblock %}
+
 </section>

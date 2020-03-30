@@ -25,7 +25,7 @@ class RazaAdmin(admin.ModelAdmin):
 
 
 class MascotaPerdidaAdmin(admin.ModelAdmin):
-    list_display = ['estado', 'barrio', 'tipo', 'raza']
+    list_display = ['id','estado', 'barrio', 'tipo', 'raza']
     search_fields = ['nombre', 'mail', 'telefono', 'descripcion']
     list_filter = ['estado']
     list_per_page = 20

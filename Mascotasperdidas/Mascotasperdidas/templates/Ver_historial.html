@@ -31,7 +31,6 @@
     </div>
 
     <div id="info_publicacion">
-        <p>Numero de Publicacion: {{ publicacion.id }}</p>
         <p>Fecha: {{ publicacion.fecha }}</p>
 
         <!--------------   NO FUNCIONA COMO DEBERIA   -------------->
@@ -66,9 +65,6 @@
     </div>
 
     <div id="contacto_publicacion">
-        <button onclick="Swal.fire('{{ publicacion.nombre }}','Tel: 0{{ publicacion.telefono }}<br>Email: {{ publicacion.mail }}')">
-            Contactar
-        </button>
     </div>
     
 {% endblock %}
