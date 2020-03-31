@@ -22,16 +22,17 @@
                 {{ form.raza|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.telefono|as_crispy_field }}
-            </div>
-            <div class="col-6">
                 {{ form.nombre|as_crispy_field }}
             </div>
             <div class="col-6">
                 {{ form.mail|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.fecha|as_crispy_field }}
+                {{ form.telefono|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                <p>Fecha*</p>
+                {{ form.fecha }}
             </div>
             <div class="col-6">
                 {{ form.imagen|as_crispy_field }}
