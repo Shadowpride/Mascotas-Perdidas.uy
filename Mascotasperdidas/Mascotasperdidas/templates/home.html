@@ -89,9 +89,12 @@
             </div>
         </div>
     </div>
-    <a href="{% url 'historial' %}">
-    <img src=" {% static 'img/Huella.png' %} " class="botonflotante" height="80px">
+    <div class="botonflotante">
+    <a href="{% url 'historial' %}" >
+    <img src="{% static 'img/Huella.png' %}"  height="60p">
+    <span>Mascotas Reencontradas</span>
     </a>
+    </div>
 
     {% endblock %}
 

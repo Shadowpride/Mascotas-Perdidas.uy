@@ -20,10 +20,18 @@ body {
   color: white;
 
   text-decoration: none;
+  
 
   padding: 8px 12px;
 
   border-radius: 12px 0px 0px 12px;
+}
+
+.botonflotante > a {
+  color: white;
+
+  text-decoration: none;
+
 }
 
 .botonflotante:hover {
