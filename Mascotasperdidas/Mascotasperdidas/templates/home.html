@@ -63,12 +63,11 @@
                 
                 <input type="submit" value="Filtrar">
             </form>
-            <div class="row">
+            <div class="row no-gutters">
                 {% for m in mascotas %}
                     {% if m.estado != 'FINALIZADO' %}
                         {% if m.imagen %}
-                        <div class="col-sm-4 animate-box">
-                            <div class="bordery">
+                        <div class="col-sm-3 animate-box">
                                 <figure id= "fotos">
                                     <a href="{% url 'ver_publicacion' m.id %}">
         
@@ -81,7 +80,6 @@
                                         {% endif %}
                                     </a>
                                 </figure>
-                            </div>
                         </div>    
                         {% endif %}
                     {% endif %}      
