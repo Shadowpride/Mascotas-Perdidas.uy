@@ -7,13 +7,39 @@
 {% load crispy_forms_tags %}
 
 {% block contenido %}
-    <h3>Aquí ingresas la Mascota Perdida</h3>
+    <h3>Ingrese aquí la Mascota Perdida</h3>
 
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-
-        {{ form | crispy }}         <!-- para que se epueda ver dentro de la tabla-->
-
+        <div class="row">
+            {{ form.estado|as_crispy_field }}
+            <div class="col-6">
+              {{ form.tipo|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.barrio|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.raza|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.nombre|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.mail|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.telefono|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                <p>Fecha*</p>
+                {{ form.fecha }}
+            </div>
+            <div class="col-6">
+                {{ form.imagen|as_crispy_field }}
+            </div>
+        </div>
+        {{ form.descripcion|as_crispy_field }}
         <div class="float-right">
             <input type="submit" value="Publicar" class="btn btn-success">
         </div>

@@ -6,29 +6,23 @@ body {
   min-height: 100vh;
 }
 
+
 /*   ------------------   BOTON FLOTANTE   ------------------   */
 
 .botonflotante{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
   display: inline-block;
   position: fixed;
   bottom: 20px;
   right: 0px;
 
-  background-color: rgb(41, 41, 41);
-  color: white;
-
-  text-decoration: none;
-
+  background-color: rgb(114, 110, 110);
+  
   padding: 8px 12px;
 
   border-radius: 12px 0px 0px 12px;
 }
 
 .botonflotante:hover {
-  text-decoration: none;
-  color: white;
   background-color: grey;
 }
 
@@ -131,6 +125,8 @@ body {
 
 #boton_encontrada:hover, #boton_perdida:hover {
   filter:brightness(0.6);
+
+  text-decoration: none;
 }
 
 
@@ -343,6 +339,13 @@ footer{
 .contacto_redsocial{
   margin-top: 20px;
   display: flex;
+  filter: grayscale(1);
+
+}
+
+.contacto_redsocial > p > a {
+  color: white;
+  text-decoration: none;
 }
 
 .contacto_redsocial p{
@@ -366,6 +369,10 @@ footer{
   display: flex;
 }
 
+.contenido_columna_tres > p > a {
+  color: white;
+}
+
 .contenido_columna_tres img{
   width: 36px;
   height: 36px;
@@ -375,6 +382,11 @@ footer{
   margin-top: 5px;
   margin-left: 20px;
   max-width: 140px;
+}
+
+
+.contacto_redsocial:hover {
+  filter: grayscale(0);
 }
 
 

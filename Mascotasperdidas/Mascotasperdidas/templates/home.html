@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 
@@ -62,14 +63,13 @@
                 
                 <input type="submit" value="Filtrar">
             </form>
-            <div class="row">
+            <div class="row no-gutters">
                 {% for m in mascotas %}
                     {% if m.estado != 'FINALIZADO' %}
                         {% if m.imagen %}
-                        <div class="col-sm-4 animate-box">
-                            <div class="bordery">
+                        <div class="col-sm-3 animate-box">
                                 <figure id= "fotos">
-                                    <a href="{% url 'ver_publicacion' m.id %}">
+                                    <a href="{% url 'ver_publicacion' m.id %}" style="color: white; text-decoration: none;">
         
                                         {% if m.estado == 'PERDIDO' %}
                                             <img src="{{ m.imagen.url }}" alt="" class="imagenes_perdido">
@@ -80,7 +80,6 @@
                                         {% endif %}
                                     </a>
                                 </figure>
-                            </div>
                         </div>    
                         {% endif %}
                     {% endif %}      
@@ -88,8 +87,11 @@
             </div>
         </div>
     </div>
-
-    <a href="{% url 'historial' %}" class="botonflotante">Mascotas reencontradas</a>
+    <div class="botonflotante">
+        <a href="{% url 'historial' %}" >
+            <img src="{% static 'img/Huellaboton.png' %}"  height="25p">
+        </a>
+    </div>
 
     {% endblock %}
 

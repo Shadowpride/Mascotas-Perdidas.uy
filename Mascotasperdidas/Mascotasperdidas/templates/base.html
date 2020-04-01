@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MascotasPerdidas.uy | {% block title %}{% endblock %}</title>
 
-    
+    <link rel="icon" href="{% static 'img/iconoweb.png' %}" type="image/png"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block css %}{% endblock %}
@@ -75,7 +75,12 @@
  
                  <div class="columna_uno">
                      <h4><span style="color: royalblue;">MASCOTAS</span> <span style="color: rgb(3, 173, 80);">PERDIDAS</span></h4>
-                     <a href="{% url 'historial' %}" class="copyright"> Nuestros Logros</a>
+                     <p class="copyright">
+                        Sabemos que las búsquedas no son siempre sencillas, por esta razón desarrollamos 
+                        MascotasPerdidas.uy. Sitio web diseñado para centralizar las publicaciones de mascotas 
+                        perdidas y encontradas, brindando a su vez un sistema de filtrado que ayude a encontrar su 
+                        mascota o al dueño de la misma.
+                        </p>
  
                  </div>
  
@@ -84,13 +89,13 @@
                      <h4>Redes Sociales</h4>
  
                      <div class="contacto_redsocial">
-                        <img src="{% static 'img/facebook.png' %}" height="36px">
-                        <p><a href="https://www.facebook.com" target="_blank" onclick="myJsFunc();">Siguenos en Facebook</a></p>
+                        <img src="{% static 'img/facebook.png' %}" height="36px" class="color-redsocial">
+                        <p><a href="https://www.facebook.com" target="_blank">Siguenos en Facebook</a></p>
                      </div>
 
                      <div class="contacto_redsocial">
-                        <img src="{% static 'img/instagram.png' %}" height="36px">
-                        <p><a href="https://www.instagram.com" target="_blank" onclick="myJsFunc();">Siguenos en Instagram</a></p>
+                        <img src="{% static 'img/instagram.png' %}" height="36px" class="color-redsocial">
+                        <p><a href="https://www.instagram.com" target="_blank">Siguenos en Instagram</a></p>
                      </div>
 
                  </div>
@@ -101,7 +106,7 @@
 
                      <div class="contenido_columna_tres">
                         <img src="{% static 'img/contact.png' %}">
-                        <p><a href="mailto:mascotasperdida@gmail.com " target="_blank" onclick="myJsFunc();">mascotasperdidas@gmail.com</a></p>
+                        <p><a href="mailto:mascotasperdida@gmail.com " target="_blank">mascotasperdidas@gmail.com</a></p>
                      </div>
 
                  </div>

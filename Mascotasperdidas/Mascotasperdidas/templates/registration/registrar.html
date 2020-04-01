@@ -10,11 +10,22 @@
 <body>
     <div class="container">
         <h2>Registrarse</h2>
-        <form action="" method="POST">
+            <form action="" method="POST">
             {% csrf_token %}
+                <div class="row">
 
-            {{ form | crispy }}
-    
+                    <div class="col-6">{{ form.first_name | as_crispy_field }}</div>
+                    
+                    <div class="col-6">{{ form.last_name | as_crispy_field }}</div>
+
+                    <div class="col-6">{{ form.username | as_crispy_field }}</div>
+                    
+                    <div class="col-6">{{ form.email | as_crispy_field }}</div>
+                                
+                    <div class="col-6">{{ form.password1 | as_crispy_field }}</div>
+                    
+                    <div class="col-6">{{ form.password2 | as_crispy_field }}</div>
+                </div>
             <div class="float-right">
                 <input type="reset" value="Limpiar" class="btn btn-info">
                 <input type="submit" value="Registrarse" class="btn btn-success">

@@ -19,8 +19,14 @@
 
 {% if user.is_authenticated %}
     <h3>Listado de publicaciones</h3>
-    <p>Aquí podrás modificar y eliminar tus publicaciones. <br>
-        Desde el equipo de MascotasPerdidas.uy agredecemos que finalices la publicación una vez hayas contactado con el dueño o cuidador. Gracias!</p>
+
+    <p><br>
+    Desde el equipo de MascotasPerdidas.uy agredecemos que finalices la publicación una vez hayas contactado con el dueño o cuidador.<br><br>
+    Pulsa 
+    <img src="{% static 'img/edit.png' %}" alt="Editar" height="24px" > para editar tu publicación,
+    <img src="{% static 'img/delete.png' %}" alt="Eliminar" height="24px" > para eliminar y 
+    <img src="{% static 'img/finalizar.png' %}" alt="Finalizar" height="24px"> para finalizar. 
+    </p>
     <table class="table table-striped">
         <tr>
             <th>Estado</th>
@@ -37,19 +43,19 @@
         {% for l in listado %}
             {% if user.email == l.mail %}
                 <tr>
-                    <th>{{ l.estado }}</th>
-                    <th>{{ l.barrio }}</th>
-                    <th>{{ l.tipo }}</th>
-                    <th>{{ l.raza }}</th>
+                    <th>{{ l.estado|title }}</th>
+                    <th>{{ l.barrio|title }}</th>
+                    <th>{{ l.tipo|title }}</th>
+                    <th>{{ l.raza|title }}</th>
                     <th>{{ l.fecha }}</th>
                     <th>{{ l.nombre }}</th>
                     <th>{{ l.mail }}</th>
                     <th>{{ l.telefono }}</th>
                     <th>
-                        <a href="{% url 'modificar_publicaciones' l.id %}">Modificar</a>
-                        <a href="#" onclick="ConfirmarEliminacion({{l.id}})">Eliminar</a>
+                        <a href="{% url 'modificar_publicaciones' l.id %}"><img src="{% static 'img/edit.png' %}" alt="Editar" height="24px" style="padding-right: 5px;"></a>
+                        <a href="#" onclick="ConfirmarEliminacion({{l.id}})"><img src="{% static 'img/delete.png' %}" alt="Eliminar" height="24px" style="padding-right: 5px;"></a>
                         {% if l.estado != 'FINALIZADO' %}
-                            <a href="#" onclick="Finalizar({{l.id}})">Finalizar</a>
+                            <a href="#" onclick="Finalizar({{l.id}})"><img src="{% static 'img/finalizar.png' %}" alt="Finalizar" height="24px"></a>
                         {% endif %}
 
                     </th>

@@ -60,7 +60,7 @@ class MascotaPerdidaForm_e(ModelForm):
 class CustomUserForm(UserCreationForm):
 
     email = forms.EmailField(required=True)
-    first_name = forms.CharField(required=True)
+    first_name = forms.CharField(required=True, label="Nombre")
     
     class Meta:
         model = User
