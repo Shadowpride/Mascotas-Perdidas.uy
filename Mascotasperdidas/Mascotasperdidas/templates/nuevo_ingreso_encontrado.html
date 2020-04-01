@@ -9,10 +9,11 @@
 {% block contenido %}
     <h3>Aquí ingresas la Mascota Encontrada</h3>
     
-    <form action="/nuevo_ingreso_encontrado/" method="POST" enctype="multipart/form-data" novalidate>
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
  
         <div class="row">
+            {{ form_e.estado |as_crispy_field }}
             <div class="col-6">
               {{ form_e.tipo|as_crispy_field }}
             </div>
@@ -39,7 +40,9 @@
                 {{ form_e.imagen|as_crispy_field }}
             </div>
         </div>
+
         {{ form_e.descripcion|as_crispy_field }}
+
         <div class="float-right">
             <input type="submit" value="Publicar" class="btn btn-success">
         </div>

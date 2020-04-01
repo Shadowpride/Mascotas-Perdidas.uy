@@ -9,9 +9,10 @@
 {% block contenido %}
     <h3>Aquí ingresas la Mascota Perdida</h3>
 
-    <form action="" method="POST" enctype="multipart/form-data" novalidate>
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row">
+            {{ form.estado|as_crispy_field }}
             <div class="col-6">
               {{ form.tipo|as_crispy_field }}
             </div>
