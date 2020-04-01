@@ -18,8 +18,13 @@
 
 
 {% block contenido %}
+    <div class="bloque-titulo-pub">
+        <h3 id="titulo_publicacion">{{ publicacion.tipo|title }} {{ publicacion.estado|lower }} en {{ publicacion.barrio|title }}</h3>
+        <p class="numero-publicacion">Publicación  #{{ publicacion.id }}</p>
+        
+    </div>
 
-    <h3 id="titulo_publicacion">{{ publicacion.tipo|title }} {{ publicacion.estado|lower }} en {{ publicacion.barrio|title }}</h3>
+    
 
     <div id="foto_publicacion">
         <a href="#" onclick="Swal.fire({
@@ -31,7 +36,6 @@
     </div>
 
     <div id="info_publicacion">
-        <p>Numero de Publicacion: {{ publicacion.id }}</p>
         <p>Fecha: {{ publicacion.fecha }}</p>
 
         <!--------------   NO FUNCIONA COMO DEBERIA   -------------->

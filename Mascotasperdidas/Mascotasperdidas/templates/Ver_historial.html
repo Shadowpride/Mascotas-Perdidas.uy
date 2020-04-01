@@ -19,7 +19,11 @@
 
 {% block contenido %}
 
-    <h3 id="titulo_publicacion">Estado de la publicación: {{ publicacion.estado|title }}</h3>
+    <div class="bloque-titulo-pub">
+        <h3 id="titulo_publicacion">Estado de la publicación: {{ publicacion.estado|lower }}</h3>
+        <p class="numero-publicacion">Publicación  #{{ publicacion.id }}</p>
+        
+    </div>
 
     <div id="foto_publicacion">
         <a href="#" onclick="Swal.fire({

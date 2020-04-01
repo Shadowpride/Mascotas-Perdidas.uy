@@ -1,8 +1,20 @@
+.bloque-titulo-pub {
+    margin-bottom: 20px;
+    border-bottom: lightgray 1px solid;
+}
+
 #titulo_publicacion {
     padding-bottom: 5px;
-    margin-bottom: 20px;
 
-    border-bottom: lightgray 1px solid;
+    display: inline-block;
+}
+
+.numero-publicacion {
+    display: inline-block;
+    float: right;
+    color: grey;
+    font-size: 18px;
+    
 }
 
 #foto_publicacion {
