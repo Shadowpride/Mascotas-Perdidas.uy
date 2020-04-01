@@ -46,8 +46,8 @@
                     <th>{{ l.mail }}</th>
                     <th>{{ l.telefono }}</th>
                     <th>
-                        <a href="{% url 'modificar_publicaciones' l.id %}">Modificar</a>
-                        <a href="#" onclick="ConfirmarEliminacion({{l.id}})">Eliminar</a>
+                        <a href="{% url 'modificar_publicaciones' l.id %}"><img src="{% static 'img/edit.png' %}" alt="Editar" height="20px"></a>
+                        <a href="#" onclick="ConfirmarEliminacion({{l.id}})"><img src="{% static 'img/delete.png' %}" alt="Eliminar" height="20px"></a>
                         {% if l.estado != 'FINALIZADO' %}
                             <a href="#" onclick="Finalizar({{l.id}})">Finalizar</a>
                         {% endif %}

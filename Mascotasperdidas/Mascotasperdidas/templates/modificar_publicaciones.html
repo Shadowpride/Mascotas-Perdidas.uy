@@ -20,8 +20,38 @@
     <form action="" method="POST">
         {% csrf_token %}
 
-        {{ form | crispy }} 
-
+        <div class="row">
+            {{ form.estado|as_crispy_field }}
+            <div class="col-6">
+              {{ form.tipo|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.barrio|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.raza|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.nombre|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.mail|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.telefono|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                <p>Fecha*</p>
+                {{ form.fecha }}
+            </div>
+            <div class="col-6">
+                {{ form.imagen|as_crispy_field }}
+            </div>
+        </div>
+        {{ form.descripcion|as_crispy_field }}
+        <div class="float-right">
+            <input type="submit" value="Publicar" class="btn btn-success">
+        </div>
         <div class="float-right">
             <input type="submit" value="Modificar" class="btn btn-success" onclick="ConfirmarModificacion()">
         </div>
