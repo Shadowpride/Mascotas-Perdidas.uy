@@ -19,7 +19,7 @@
 
 {% block contenido %}
 
-    <h3 id="titulo_publicacion">{{ publicacion.tipo|title }} {{ publicacion.estado|lower }} en {{ publicacion.barrio|title }}</h3>
+    <h3 id="titulo_publicacion">Estado de la publicación: {{ publicacion.estado|title }}</h3>
 
     <div id="foto_publicacion">
         <a href="#" onclick="Swal.fire({
@@ -33,33 +33,11 @@
     <div id="info_publicacion">
         <p>Fecha: {{ publicacion.fecha }}</p>
 
-        <!--------------   NO FUNCIONA COMO DEBERIA   -------------->
+        <p>Raza: {{ publicacion.raza|title }}</p>
 
-        {% if publicacion.raza == 'OTRO' %}
-            <p>Raza: No especificada</p>
-        {% else %}
-            <p>Raza: {{ publicacion.raza|title }}</p>
-        {% endif %}
+        <p>Estado de la mascota: <span style="color: rgb(3, 173, 80);">{{ publicacion.estado|title }}</span></p>
 
-        <!---------------------------------------------------------->
-        
-
-        {% if publicacion.estado == 'ENCONTRADO' %}
-            <p>Estado de la mascota: <span style="color: royalblue;">{{ publicacion.estado|title }}</span></p>
-        {% else %}
-            <p>Estado de la mascota: <span style="color: rgb(3, 173, 80);">{{ publicacion.estado|title }}</span></p>
-        {% endif %}
-        
-
-        <!--------------   NO FUNCIONA COMO DEBERIA   -------------->
-
-        {% if publicacion.barrio == 'OTRO' %}
-            <p>Barrio: No especificado</p>
-        {% else %}
-            <p>Barrio: {{ publicacion.barrio|title }}</p>
-        {% endif %}
-
-        <!---------------------------------------------------------->
+        <p>Barrio: {{ publicacion.barrio|title }}</p>
 
         <p>Descripción de la mascota: {{ publicacion.descripcion }}</p>
     </div>

@@ -13,11 +13,10 @@
         <div id="container" id="fh5co-features">
             <h2>Historial de mascotas reencontradas</h2>
             <span class="subtitulo_home">¡Estas son las mascotas que pudieron encontrar a sus dueños!</span>
-            <div class="row">
+            <div class="row no-gutters">
                 {% for m in historial %}
                     {% if m.imagen %}
-                    <div class="col-sm-4 animate-box">
-                        <div class="bordery">
+                    <div class="col-sm-3 animate-box">
                             {% if m.estado == 'FINALIZADO' %}
                             <figure id= "fotos">
                                 <a href="{% url 'Ver_historial' m.id %}">
@@ -25,7 +24,6 @@
                                 </a>
                             </figure>
                             {% endif %}
-                        </div>
                     </div>    
                     {% endif %}   
                 {% endfor %}

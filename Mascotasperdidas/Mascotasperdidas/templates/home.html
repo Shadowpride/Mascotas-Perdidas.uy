@@ -69,7 +69,7 @@
                         {% if m.imagen %}
                         <div class="col-sm-3 animate-box">
                                 <figure id= "fotos">
-                                    <a href="{% url 'ver_publicacion' m.id %}">
+                                    <a href="{% url 'ver_publicacion' m.id %}" style="color: white; text-decoration: none;">
         
                                         {% if m.estado == 'PERDIDO' %}
                                             <img src="{{ m.imagen.url }}" alt="" class="imagenes_perdido">
@@ -88,10 +88,9 @@
         </div>
     </div>
     <div class="botonflotante">
-    <a href="{% url 'historial' %}" >
-    <img src="{% static 'img/Huella.png' %}"  height="60p">
-    <span>Mascotas Reencontradas</span>
-    </a>
+        <a href="{% url 'historial' %}" >
+            <img src="{% static 'img/Huellaboton.png' %}"  height="25p">
+        </a>
     </div>
 
     {% endblock %}
