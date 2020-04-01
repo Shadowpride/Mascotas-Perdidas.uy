@@ -37,10 +37,10 @@
         {% for l in listado %}
             {% if user.email == l.mail %}
                 <tr>
-                    <th>{{ l.estado }}</th>
-                    <th>{{ l.barrio }}</th>
-                    <th>{{ l.tipo }}</th>
-                    <th>{{ l.raza }}</th>
+                    <th>{{ l.estado|title }}</th>
+                    <th>{{ l.barrio|title }}</th>
+                    <th>{{ l.tipo|title }}</th>
+                    <th>{{ l.raza|title }}</th>
                     <th>{{ l.fecha }}</th>
                     <th>{{ l.nombre }}</th>
                     <th>{{ l.mail }}</th>
