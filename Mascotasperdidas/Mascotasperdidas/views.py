@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required  # <---- Para pedir acceso de login a funcionalidades
 from Mascotas.models import MascotaPerdida, Barrio, Raza
-from .forms import MascotaPerdidaForm, MascotaPerdidaForm_e, CustomUserForm
+from .forms import MascotaPerdidaForm, MascotaPerdidaForm_e, CustomUserForm, EditUserForm
 from django.contrib.auth import login, authenticate
-
+from django.contrib.auth.models import User
 
 
 
@@ -141,7 +141,7 @@ def Listado_publicaciones(request):
     }
     return render(request, 'listado_publicaciones.html', data)
 
-
+@login_required
 def Modificar_publicaciones(request, id):
     modificar = MascotaPerdida.objects.get(id=id)
     data = {
@@ -157,14 +157,25 @@ def Modificar_publicaciones(request, id):
 
     return render(request, 'modificar_publicaciones.html', data)
 
+@login_required
+def edituser(request):
+    if request.method == 'POST':
+        formulario = EditUserForm(request.POST, instance=request.user)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(to='edituser')
+        data['form'] = formulario
 
+    return render(request, 'registration/edituser.html', data)
+
+@login_required
 def Eliminar_publicacion(request, id):
     publicacion = MascotaPerdida.objects.get(id=id)
     publicacion.delete()
 
     return redirect(to="listado_publicaciones")
 
-
+@login_required
 def Finalizar(request, id):
     publicacion = MascotaPerdida.objects.get(id=id)
     publicacion.estado='FINALIZADO'              #Cambia estado a FINALZIADO
@@ -215,3 +226,5 @@ def historial(request):
         'historial':historial
     }
     return render(request, 'historial.html', data)
+
+

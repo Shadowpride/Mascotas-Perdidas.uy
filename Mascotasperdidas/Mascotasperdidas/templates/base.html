@@ -27,7 +27,7 @@
         {% if user.is_authenticated %}
             <a href="{% url 'logout' %}">Cerrar sesión</a>  <!-- se importa automaticamente en el path de login -->
             <a href="{% url 'listado_publicaciones' %}">Mis publicaciones</a>
-            <a href="#">Usuario: {{ user.username }}</a>
+            <a href="{% url 'edituser' %}">Usuario: {{ user.username }}</a>
 
         {% else %}
             <a href="{% url 'registro_usuario' %}">Registrarse</a>
