@@ -4,6 +4,7 @@ from Mascotas.models import MascotaPerdida, Barrio, Raza
 from .forms import MascotaPerdidaForm, MascotaPerdidaForm_e, CustomUserForm, EditUserForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserChangeForm
 
 
 
@@ -159,13 +160,17 @@ def Modificar_publicaciones(request, id):
 
 @login_required
 def edituser(request):
+    data = {
+        'form':EditUserForm(instance=request.user)
+    }
     if request.method == 'POST':
         formulario = EditUserForm(request.POST, instance=request.user)
         if formulario.is_valid():
             formulario.save()
             return redirect(to='edituser')
 
-    return render(request, 'registration/edituser.html')
+
+    return render(request, 'registration/edituser.html', data)
 
 @login_required
 def Eliminar_publicacion(request, id):

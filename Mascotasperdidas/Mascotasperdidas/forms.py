@@ -66,11 +66,11 @@ class CustomUserForm(UserCreationForm):
         model = User
         fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2']
 
+
 class EditUserForm(UserChangeForm):
 
     email = forms.EmailField(required=True)
-    first_name = forms.CharField(required=True, label="Nombre")
     
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email']
+        fields = ['username', 'email']

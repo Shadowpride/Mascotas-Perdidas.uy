@@ -13,18 +13,12 @@
             <form action="" method="POST">
             {% csrf_token %}
                 <div class="row">
-
-                    <div class="col-6">{{ EditUserForm.first_name | as_crispy_field }}</div>
-                    
-                    <div class="col-6">{{ EditUserForm.last_name | as_crispy_field }}</div>
-                   
-                    <div class="col-6">{{ EditUserForm.email | as_crispy_field }}</div>
-
-                    <div class="col-6"></div>
-                                
-                    <div class="col-6">{{ EditUserForm.password | as_crispy_field }}</div>
-
+                    <div class="col-6">{{ form.username | as_crispy_field }}</div>
+                    <div class="col-6">{{ form.email | as_crispy_field }}</div>
+            
                 </div>
+
+
             <div class="float-right">
                 <input type="submit" value="Actualizar datos" class="btn btn-success">
             </div>
