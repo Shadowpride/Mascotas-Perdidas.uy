@@ -164,9 +164,8 @@ def edituser(request):
         if formulario.is_valid():
             formulario.save()
             return redirect(to='edituser')
-        data['form'] = formulario
 
-    return render(request, 'registration/edituser.html', data)
+    return render(request, 'registration/edituser.html')
 
 @login_required
 def Eliminar_publicacion(request, id):
