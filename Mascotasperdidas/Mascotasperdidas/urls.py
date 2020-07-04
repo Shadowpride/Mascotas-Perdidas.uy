@@ -27,7 +27,8 @@ urlpatterns = [
     path('registro/', registro_usuario, name='registro_usuario'),
     path('edituser/', edituser, name='edituser'),
     path('historial/', historial, name='historial'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
 
 
 # ------   PARA MANIPULAR IMAGENES   ------ #
