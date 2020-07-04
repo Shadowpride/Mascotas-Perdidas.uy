@@ -1,1 +1,1 @@
-web: gunicorn mascotas-perdidas.uy.wsgi
+web: gunicorn Mascotasperdidas.wsgi
