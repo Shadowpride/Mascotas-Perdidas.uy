@@ -128,6 +128,8 @@ STATICFILES_DIRS = [
     './Mascotasperdidas/static'
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # ------   Para manipular las imagenes   ------ #
 
 '''NO OLVIDAR INSTALAR PILLOW CON EL PIP'''
